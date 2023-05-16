@@ -1,0 +1,860 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f0f0f0;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+  background-image: url("../image/Raiburari_background.png");
+  background-position: center;
+  background-repeat: repeat;
+  background-color: #fff;
+  opacity: 0.9;
+}
+
+/* ----------------------------------------------- Page Connexion ---------------------------------------------------- */
+
+/* Titres */
+.titre-form {
+  font-size: 45px;
+  text-align: center;
+  margin: 20px;
+}
+
+.sign-up h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Formulaires */
+.formulaire {
+  max-width: 600px;
+  margin: 10% auto;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border: #B22222 solid 1px;
+}
+
+.sign-in label,
+.sign-up label {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.sign-in input,
+.sign-up input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: #B22222 solid 1 px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.sign-in button,
+.sign-up button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #DC143C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sign-in button:hover,
+.sign-up button:hover {
+  color: #B22222;
+  border: #B22222 solid 2px;
+}
+.sign-in button:hover,
+.sign-up button:hover {
+  background-color: #ffffff;
+}
+
+/* Lien "Pas de compte ? Inscris-toi !" */
+#signup-btn {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 20px;
+  color: #DC143C;
+  text-decoration: underline;
+}
+
+/* Lien "Retour à la connexion" */
+#back-to-login-link {
+  display: block;
+  text-align: center;
+  margin: 25px;
+  font-size: 20px;
+  color: #DC143C;
+  text-decoration: underline;
+}
+
+#back-to-login-link:hover {
+  color: #B22222;
+}
+
+/* ----------------------------------------------- Fin Page Connexion ------------------------------------------- */
+/* -------------------------------------------- Page Connexion Media Queries ------------------------------------ */
+
+/* Media queries */
+@media screen and (max-width: 767px) {
+  .titre-form {
+    font-size: 30px;
+    margin: 10px;
+  }
+
+  .sign-up h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sign-in label,
+  .sign-up label {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .sign-in input,
+  .sign-up input {
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .sign-in button,
+  .sign-up button {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  #signup-btn,
+  #back-to-login-link {
+    font-size: 16px;
+  }
+}
+/* ---------------------------------------- Fin Page Connexion Media Queries ------------------------------------ */
+
+
+/* ----------------------------------------------------- HEADER ------------------------------------------------- */
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #2C3E50;
+  padding: 10px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+/* Logo */
+#logo img {
+  width: 200px;
+  height: auto;
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+
+/* Navigation */
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  margin-left: 20px;
+}
+
+.main-nav ul li {
+  margin-left: 20px;
+}
+
+.main-nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.main-nav ul li a:hover {
+  color: #E74C3C;
+}
+
+/* Recherche */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 500px;
+}
+
+.search-container input {
+  padding: 4px 12px;
+  font-size: 14px;
+  width: 500px;
+  border-radius: 4px;
+  border: 1px solid #E74C3C;
+  z-index: 1;
+}
+
+.search-container button {
+  position: absolute;
+  right: 0;
+  background-color: #E74C3C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 2;
+}
+
+.search-container button:hover {
+  background-color: #C0392B;
+}
+
+/* Profil */
+#profile {
+  display: flex;
+  align-items: center;
+}
+
+#profile a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  margin-right: 10px;
+  transition: color 0.3s;
+}
+
+#profile a:hover {
+  color: #E74C3C;
+}
+
+.logout-button {
+  background-color: #E74C3C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #C0392B;
+}
+
+/* ------------------------------------------- HEADER MEDIA QUERIES---------------------------------------- */
+
+/* Media Queries */
+@media screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+    padding: 35px;
+
+  }
+
+  #logo img {
+    width: 150px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  .main-nav ul li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+}
+
+/* ------------------------------------------ FIN HEADER MEDIA QUERIES --------------------------------------- */
+
+/* -------------------------------------------------- FOOTER --------------------------------------------------*/ 
+
+footer {
+  background-color: #E74C3C;
+  color: #fff;
+  padding: 40px 50px;
+  margin-top: 100px;
+}
+  
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+  
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+  padding-top: 5px;
+}
+  
+.footer-center {
+  text-align: center;
+}
+
+/* ---------------------------------------------- FIN FOOTER --------------------------------------------------*/ 
+
+/* ---------------------------------------------- Section Manga --------------------------------------------------*/ 
+
+/* Polices */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap');
+
+/* highlighted-manga */
+#highlighted-manga h2 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 76px;
+  margin-bottom: 25px;
+  text-align: center;
+  margin-top: 100px;
+  color: #2C3E50;
+}
+
+.manga-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.manga-card {
+  display: inline-block;
+  width: 20%;
+  margin: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.fond-accueil {
+  max-width: 90%;
+}
+
+.manga-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.manga-card img {
+  width: 80%;
+  max-height: 80%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.manga-card h3 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 24px;
+  margin: 10px;
+  color: #34495E;
+  transition: all 0.3s ease;
+}
+
+.manga-card:hover h3 {
+  color: #E74C3C;
+}
+
+.manga-card p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: 10px;
+  color: #7F8C8D;
+  transition: all 0.3s ease;
+}
+
+.manga-card:hover p {
+  color: #34495E;
+}
+
+.manga-card a {
+  display: block;
+  background-color: #E74C3C;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+.manga-card:hover a {
+  background-color: #34495E;
+}
+
+.manga-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.follow-button, .details-button {
+  display: inline-block;
+  background-color: #E74C3C;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  width: 48%;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.follow-button:hover, .details-button:hover {
+  background-color: #34495E;
+  border: 2px solid #E74C3C;
+  color: #E74C3C;
+}
+
+.follow-button {
+  margin-right: 2%;
+}
+
+.details-button {
+  margin-left: 2%;
+}
+ /* ------------------------------------------------- FIN Section Manga  --------------------------------------------- */ 
+
+ /* ----------------------------------------- DEBUT Section Manga MEDIA QUERIES -------------------------------------- */ 
+/* Media query pour les écrans de 767px ou moins */
+@media screen and (max-width: 767px) {
+  #highlighted-manga h2 {
+    font-size: 48px;
+    margin-top: 50px;
+  }
+
+  .manga-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .manga-card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .manga-card img {
+    width: 100%;
+    max-height: 100%;
+  }
+
+  .follow-button, .details-button {
+    width: 100%;
+  }
+
+  .follow-button {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .details-button {
+    margin-left: 0;
+  }
+}
+/* ------------------------------------------ FIN Senction Manga MEDIA QUERIES --------------------------------------- */
+
+
+/* ------------------------------------------ DEBUT page profil Utilisateur --------------------------------------- */
+
+
+
+.profil-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  background-color: #f8f8f8;
+  padding-top: 50px;
+  margin-top: 250px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.profil-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 80px;
+  float: left;
+  border: 5px solid #2C3E50;
+}
+
+.profil-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profil-info {
+  text-align: left;
+}
+
+.profil-info h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #2C3E50;
+}
+
+.profil-info p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #7F8C8D;
+}
+
+.profil-modifier {
+  bottom: 20px;
+  right: 20px;
+  background-color: #E74C3C;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.profil-modifier:hover {
+  background-color: #34495E;
+  color: #E74C3C;
+  border: 2px solid #E74C3C;
+}
+/* ------------------------------------------ FIN page profil Utilisateur --------------------------------------- */
+
+
+/* --------------------------------------- DEBUT page modifier profil Utilisateur ------------------------------ */
+
+.manga-theme .formulaire-modifier {
+  background-color: #2C3E50;
+  padding: 20px;
+  border: 1px solid #34495E;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.manga-theme .fond-sombre h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 24px;
+  color: #E74C3C;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.manga-theme .formulaire-modifier label {
+  display: block;
+  font-size: 14px;
+  color: #ECF0F1;
+  margin-bottom: 5px;
+}
+.manga-theme p{
+  color: #ffffff;
+  margin: 10px;
+}
+.manga-theme .formulaire-modifier input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.manga-theme .formulaire-modifier input:focus {
+  border-color: #E74C3C;
+}
+
+.manga-theme .formulaire-modifier input[type="submit"] {
+  background-color: #E74C3C;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.manga-theme .formulaire-modifier input[type="submit"]:hover {
+  background-color: #34495E;
+}
+
+.manga-theme a {
+  color: #E74C3C;
+}
+
+.manga-theme a:hover {
+  color: #34495E;
+}
+
+.manga-theme button {
+  background-color: #E74C3C;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.manga-theme button:hover {
+  background-color: #34495E;
+}
+
+.manga-theme .delete-profile-form {
+  margin-top: 20px;
+}
+
+
+/* --------------------------------------- FIN page modifier profil Utilisateur ------------------------------ */
+
+
+/* --------------------------------------------- DEBUT page Detail Manga ------------------------------------- */
+
+
+.manga-details-container {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+.manga-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.manga-details {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.manga-image {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 3px solid #333;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.manga-synopsis-container {
+  display: block;
+}
+
+.manga-synopsis-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.manga-synopsis {
+  font-size: 1rem;
+  color: #666;
+}
+
+.manga-info {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.manga-date-title,
+.manga-genres-title,
+.manga-authors-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.manga-status,
+.manga-start-date,
+.manga-end-date {
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.manga-genres-list,
+.manga-authors-list {
+  list-style-type: none;
+  margin-bottom: 1rem;
+}
+
+.manga-genre,
+.manga-author {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.manga-additional-images-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.manga-additional-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.manga-additional-images img {
+  max-width: 100%;
+  border: 3px solid #333;
+  border-radius: 5px;
+}
+
+
+
+
+/* --------------------------------------------- DEBUT page Detail Manga ------------------------------------- */
+
+/* --------------------------------------------- DEBUT page Contact ------------------------------------------ */
+
+
+/* Conteneur principal */
+.container-manga {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre de la page */
+.page-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Style du formulaire */
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+/* Style des champs de saisie */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.form-input[type="textarea"] {
+  height: 150px;
+}
+
+/* Style des labels */
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style du bouton de soumission */
+.form-submit {
+  grid-column: span 2;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.form-submit:hover {
+  background-color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Ajoutez les styles pour le bloc de connexion */
+#login-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none; /* Cache le bloc de connexion par défaut */
+  z-index: 1000;
+}
+
+#close-login-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
+}
+
+
+.manga-author, .manga-synopsis {
+  display: none;
+}

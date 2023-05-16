@@ -1,0 +1,15 @@
+### Forbid access _ raiburari
+
+Options -Indexes
+RewriteEngine On
+
+RewriteBase /PROJET-FINAL/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [QSA,L]
+
+
+<FilesMatch "^.env$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
