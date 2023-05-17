@@ -367,8 +367,8 @@ footer {
 }
 
 .manga-card img {
-  width:450px;
-  max-height: 600px;
+  width:100%;
+  max-height: 100%;
   object-fit: cover;
   transition: all 0.3s ease;
   margin: 0 auto;
@@ -882,7 +882,8 @@ footer {
   border: 1px solid #ccc;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 600px;
+  width: 500px;
+  /*max-height: 100%; */ 
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
   transform: translateX(-20px);

@@ -21,7 +21,7 @@
             <div class="profil-info">
                 <h1> <?php  echo $_SESSION['username'] ?> </h1>
                 <p><?php echo "Mon adresse email : " . $_SESSION['email'] ?></p>
-                <a href="/PROJET-FINAL/change_profil" class="profil-modifier">Modifier profil</a>
+                <a href="index.php?route=change_profil" class="profil-modifier">Modifier profil</a>
             </div>
         </section>
             <!-- -------------------------manga favori------------------------------ -->

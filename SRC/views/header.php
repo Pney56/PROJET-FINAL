@@ -18,10 +18,10 @@
     </div>
     <?php if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']): ?>
     <div id="profile">
-        <a href="/PROJET-FINAL/profil">Mon profil</a>
-        <form action="logout">
-            <button class="logout-button" type="submit">Deconnexion</button>
-        </form>
+        <a href="?route=profil">Mon profil</a>
+        <form action="?route=logout" method="post">
+    <button class="logout-button" type="submit">Deconnexion</button>
+</form>
     </div>
     <?php else: ?>
     <button id="login-btn">Connexion</button>
@@ -40,7 +40,7 @@
         ?>
     <main class="formulaire">
         <h1 class="titre-form">RABURARI</h1>
-        <form class="sign-in" action="login" method="post">
+        <form class="sign-in" action="index.php?route=login" method="post">
             <label for="email">Adresse email:</label>
             <input type="email" id="email" name="email" required>
             <label for="password">Mot de passe:</label>
@@ -48,7 +48,7 @@
             <button type="submit">Connexion</button>
         </form>
 
-        <form class="sign-up" id="signup-form" action="register" method="post">
+        <form class="sign-up" id="signup-form" action="index.php?route=register" method="post">
             <a href="#" id="back-to-login-link">Retour à la connexion</a>
             <h2>Inscription</h2>
             <label for="sign-up-username">Nom d'utilisateur:</label>

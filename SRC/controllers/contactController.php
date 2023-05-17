@@ -6,10 +6,10 @@ class ContactController {
     }
 
     public function handleFormSubmission() {
-        $name = $_POST['name'] ?? '';
-        $email = $_POST['email'] ?? '';
-        $subject = $_POST['subject'] ?? '';
-        $message = $_POST['message'] ?? '';
+        $name =  Security::sanitize($_POST['name'] ?? '');
+        $email = Security::sanitize($_POST['email'] ?? '');
+        $subject = Security::sanitize($_POST['subject'] ?? '');
+        $message = Security::sanitize($_POST['message'] ?? '');
 
         // Valider les données et envoyer le courriel
         // ...

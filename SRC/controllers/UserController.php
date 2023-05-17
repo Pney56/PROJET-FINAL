@@ -16,6 +16,7 @@ class UserController {
     public function login() {
         // code de connexion 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            
             // Récupération des données de formulaire soumises
             $email = Security::sanitize($_POST['email']);
             $password = ($_POST['password']);
@@ -31,8 +32,9 @@ class UserController {
                     $_SESSION['isAdmin'] = $this->userModel->isAdmin($row['username']); // Ajoutez cette ligne
                     $_SESSION['isLogged'] = true;
 
+                    
                     // Redirection vers l'a page de l'API
-                    header('Location: redirectToApi');
+                    header('Location: index.php?route=redirectToApi');
                     exit();
                 } else {
                     // Le mot de passe est incorrect, afficher un message d'erreur

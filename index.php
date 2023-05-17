@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 require 'vendor/autoload.php';
 
 
@@ -8,6 +10,10 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // Charger le contrôleur et les modèles
 require_once 'SRC/controllers/UserController.php';
@@ -30,14 +36,6 @@ require_once 'SRC/models/UserModel.php';
 // Initialiser les modèles
 $userModel = new UserModel();
 
-// Initialiser le routeur
-$route = $_GET['route'] ?? '';
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$uri = str_replace('/PROJET-FINAL', '', $uri);
-$uri = trim($uri, '/');
-if ($route) {
-    $uri = $route;
-}
 
 
 // Initialiser le contrôleur
@@ -46,10 +44,15 @@ $apiController = new ApiController();
 $accueilController = new AccueilController();
 $contactController = new ContactController();
 
-switch ($uri) {
-    case '':
 
-    case 'accueil':
+
+if (isset($_GET['route'])) {
+    $action = $_GET['route'];
+
+    switch ($action) {
+
+
+        case 'accueil':
         $query = $_GET['query'] ?? null;
         $accueilController->index($query);
     break;
@@ -78,10 +81,7 @@ switch ($uri) {
         $apiController->handleApiCallback();
     break;
 
-    case 'accueil':
-        $query = $_GET['query'] ?? null;
-        $accueilController->index($query);
-    break;
+
         
     case 'manga_details':
         $id = isset($_GET['id']) ? intval($_GET['id']) : null;
@@ -115,8 +115,14 @@ switch ($uri) {
     break;
 
     case 'logout':
-        $controller = new LogoutController();
-        $controller->index();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller = new LogoutController();
+            $controller->index();
+        } else {
+            // Rediriger l'utilisateur vers la page d'accueil ou une autre page appropriée
+            header("Location: accueil");
+            exit;
+        }
     break;
 
 
@@ -179,6 +185,8 @@ switch ($uri) {
     default:
     echo "Page not found.";
     break;
-        
-}
 
+}} else {
+    // Aucune action spécifiée, afficher la page d'accueil par défaut ou une page d'erreur
+    $accueilController->index();
+}
