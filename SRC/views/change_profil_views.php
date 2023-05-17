@@ -18,7 +18,7 @@
             <form action="/PROJET-FINAL/update_profile" method="POST" class="formulaire-modifier">
 
                 <div>
-                    <p>Votre adresse Pseudo : <?php echo $_SESSION['username']; ?> </p>
+                    <p>Votre Pseudo : <?php echo $_SESSION['username']; ?> </p>
                 </div>
                 <div>
                     <p>Votre adresse email : <?php echo $_SESSION['email']; ?> </p>

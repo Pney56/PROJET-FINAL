@@ -43,3 +43,35 @@ loginBtn.addEventListener("click", () => {
 closeLoginBtn.addEventListener("click", () => {
   loginContainer.style.display = "none";
 });
+
+
+
+
+
+// test pop-up 
+
+var mangaCards = document.getElementsByClassName('manga-card');
+
+for (var i = 0; i < mangaCards.length; i++) {
+    mangaCards[i].addEventListener('mouseenter', function(e) {
+        var mangaPopup = this.querySelector('.manga-popup');
+        mangaPopup.innerHTML = e.target.innerHTML;
+        mangaPopup.style.display = 'block';
+
+        var desiredLeft = e.target.getBoundingClientRect().right;
+        var desiredTop = e.target.getBoundingClientRect().top;
+
+        var overflowRight = desiredLeft + mangaPopup.offsetWidth - window.innerWidth;
+        if (overflowRight > 0) {
+            desiredLeft -= overflowRight;
+        }
+
+        mangaPopup.style.left = desiredLeft + 'px';
+        mangaPopup.style.top = desiredTop + 'px';
+    });
+
+    mangaCards[i].addEventListener('mouseleave', function() {
+        var mangaPopup = this.querySelector('.manga-popup');
+        mangaPopup.style.display = 'none';
+    });
+}

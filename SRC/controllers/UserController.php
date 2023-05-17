@@ -17,8 +17,8 @@ class UserController {
         // code de connexion 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Récupération des données de formulaire soumises
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $email = Security::sanitize($_POST['email']);
+            $password = ($_POST['password']);
     
             $row = $this->userModel->getUserByEmail($email);
             if ($row) {
@@ -64,9 +64,9 @@ class UserController {
     
     public function register() {
         // Récupération des données de formulaire soumises
-        $username = $_POST['signup-username'];
-        $password = $_POST['signup-password'];
-        $email = $_POST['signup-email'];
+        $username = Security::sanitize($_POST['signup-username']);
+        $password = ($_POST['signup-password']);
+        $email = Security::sanitize($_POST['signup-email']);
 
         $row = $this->userModel->getUserByUsernameOrEmail($username, $email);
         if ($row) {
@@ -74,7 +74,7 @@ class UserController {
         } else {
             $this->userModel->createUser($username, $email, $password);
             // Redirection vers la page de connexion
-            header('Location: /PROJET-FINAL/login');
+            header('Location: accueil');
             exit();
         }
     }
@@ -83,7 +83,7 @@ class UserController {
     public function showLoginForm() {
         // Vérifier s'il y a un message d'erreur dans la session
         $errorMessage = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : null;
-            require_once 'SRC/views/login_view.php';
+            // require_once 'SRC/views/login_view.php';
     }
 }
  

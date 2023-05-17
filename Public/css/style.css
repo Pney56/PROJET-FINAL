@@ -367,8 +367,8 @@ footer {
 }
 
 .manga-card img {
-  width: 80%;
-  max-height: 80%;
+  width:450px;
+  max-height: 600px;
   object-fit: cover;
   transition: all 0.3s ease;
   margin: 0 auto;
@@ -413,7 +413,7 @@ footer {
 }
 
 .manga-card:hover a {
-  background-color: #34495E;
+  background-color: #ffffff;
 }
 
 .manga-buttons {
@@ -855,6 +855,74 @@ footer {
 }
 
 
-.manga-author, .manga-synopsis {
+
+
+/* -------------------------Bloc hoover details manga ----------------------------- */
+
+.main-manga-author, .main-manga-synopsis {
   display: none;
+}
+
+
+.manga-card:hover .manga-popup {
+  display: block;
+}
+
+
+
+/* -------------------------STYLE DU Bloc hoover details manga ----------------------------- */
+
+.manga-popup {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  z-index: 1100;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.manga-card:hover .manga-popup {
+  display: block;
+  opacity: 1; /* rendre le popup opaque au survol */
+  transform: translateX(0); /* décaler le popup à sa position originale au survol */
+}
+
+.manga-card-popup {
+  max-width: 100%; /* s'assurer que le contenu du popup ne dépasse pas la largeur du popup */
+  overflow: hidden; /* cacher tout contenu qui dépasse */
+}
+
+.manga-card-popup h3 {
+  margin-top: 0; /* supprimer la marge au-dessus du titre */
+}
+
+.manga-card-popup img {
+  width: 50%; /* faire en sorte que l'image prenne toute la largeur du popup */
+  object-fit: cover; /* faire en sorte que l'image couvre toute la zone sans être déformée */
+}
+
+.popup-manga-author, .popup-manga-synopsis {
+  margin: 10px 0; /* ajouter de l'espace au-dessus et en dessous de l'auteur et du synopsis */
+}
+
+.manga-buttons {
+  margin-top: 10px; /* ajouter de l'espace au-dessus des boutons */
+}
+
+.manga-buttons a {
+  display: inline-block; /* nécessaire pour ajouter des marges aux liens */
+  margin-right: 10px; /* ajouter de l'espace à droite des liens */
+  text-decoration: none; /* supprimer le soulignement des liens */
+  color: #007BFF; /* changer la couleur des liens */
+}
+
+.manga-buttons a:hover {
+  color: #0056b3; /* changer la couleur des liens au survol */
 }

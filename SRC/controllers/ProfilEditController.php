@@ -19,7 +19,7 @@ class ProfileEditController {
         $username = $userInfo['username'];
         $email = $userInfo['email'];
     
-        // Inclure le fichier de vue Change_profil_views.php
+        // Inclue le fichier de vue Change_profil_views.php
         require_once __dir__ . '/../views/Change_profil_views.php';
     }
     
@@ -36,35 +36,34 @@ class ProfileEditController {
 
 
     public function updateProfile() {
-
-
         // Initialisation des variables
         $username = $_SESSION['username'];
         $email = $password = $new_password = $confirm_new_password = "";
-
+    
         // Vérification si le formulaire a été soumis
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $new_password = $_POST['new_password'];
-            $confirm_new_password = $_POST['confirm_new_password'];
-
+            $username = Security::sanitize($_POST['username']);
+            $email = Security::sanitize($_POST['email']);
+            $password = $_POST['password'];  // Pas de nettoyage pour le mot de passe
+            $new_password = $_POST['new_password'];  // Pas de nettoyage pour le mot de passe
+            $confirm_new_password = $_POST['confirm_new_password'];  // Pas de nettoyage pour le mot de passe
+    
             // Récupération des informations actuelles de l'utilisateur
             $userInfo = $this->userModel->getUserByUsername($username);
             $currentPasswordHash = $userInfo['mot_de_passe'];
-
-            if ($userInfo && password_verify($password, $currentPasswordHash)) {
-                // Vérification du nouveau mot de passe
-                if (!empty($new_password) && $new_password === $confirm_new_password) {
+    
+            // Vérifiez si le mot de passe est correct et que les nouveaux mots de passe correspondent
+            if ($userInfo && password_verify($password, $currentPasswordHash) && $new_password === $confirm_new_password) {
+                // Si un nouveau mot de passe a été fourni, mettez à jour le hash du mot de passe
+                if (!empty($new_password)) {
                     $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
                 } else {
                     $password_hash = $currentPasswordHash;
                 }
-
+    
                 // Mise à jour des informations de l'utilisateur
                 $this->userModel->updateUser($username, $email, $password_hash);
-
+    
                 // Message de succès
                 $_SESSION['message'] = "Profil mis à jour avec succès.";
                 header('Location: /PROJET-FINAL/profil');
@@ -74,10 +73,11 @@ class ProfileEditController {
                 $_SESSION['error'] = "Mot de passe incorrect.";
             }
         }
-
+    
         // Récupération des informations actuelles de l'utilisateur
         $userInfo = $this->userModel->getUserByUsername($username);
         $username = $userInfo['username'];
         $email = $userInfo['email'];
     }
+    
 }

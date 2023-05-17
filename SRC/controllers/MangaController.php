@@ -42,6 +42,7 @@ class MangaController {
 
     //     return json_decode($response, true);
     // }
+
     public static function searchManga($query, $accessToken, $limit = 10, $id = null) {
         $ch = curl_init();
         $url = 'https://api.myanimelist.net/v2/manga';
@@ -57,10 +58,10 @@ class MangaController {
             'Authorization: Bearer ' . $accessToken,
         ]);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    
+        
         $response = curl_exec($ch);
         curl_close($ch);
-    
+
         return json_decode($response, true);
     }
     
@@ -74,7 +75,8 @@ class MangaController {
         }
         foreach ($results as $result) {
             $manga = $result['node'];
-            
+        
+            // Variable -----------------------------------------------------------
             $title = htmlspecialchars($manga['title'] ?? "");
             $id = htmlspecialchars($manga['id'] ?? "");
             $imageUrl = $manga['main_picture']['medium'] ?? "default_image_url.jpg";
@@ -82,28 +84,53 @@ class MangaController {
                 return $author['node']['first_name'] . ' ' . $author['node']['last_name'];
             }, $manga['authors'] ?? []));
             $synopsis = ($manga['synopsis'])  && !empty($manga['synopsis']) ? $manga['synopsis'] : "Aucun synopsis pour le moment";
-    
+            // Fin  Variable -----------------------------------------------------------    
+
+
+
             $html .= "<div class='manga-card'>";
-            $html .= "<h3>$title</h3>";
             
-            // Affichez le nom de l'auteur
-            $html .= "<h4 class='manga-author'>Auteur: $authors</h4>";
+                $html .= "<h3>$title</h3>";
+
+                $html .= "<img src='$imageUrl' alt='$title'>";
+                
+                 // Affichez le nom de l'auteur
+                $html .= "<h4 class='manga-author main-manga-author'>Auteur: $authors</h4>";
+
+                 // Affichez le synopsis
+                $html .= "<p class='manga-synopsis main-manga-synopsis'>Synopsis: $synopsis</p>";
+            
+
+                $html .= "<div class='manga-buttons'>";
+                    if ($isProfilePage) {
+                        $html .= "<a href='index.php?route=removeFavori&id=$id' class='unfollow-button'>Retirer des favoris</a>";
+                    } else {
+                        $html .= "<a href='index.php?route=addFavori&id=$id' class='follow-button'>Ajouter aux favoris</a>";
+                    }
+                    $html .= "<a href='index.php?route=manga_details&id=$id' class='details-button'>Voir les détails</a>";
+       
+                $html .= "</div>";
+
+            $html .= "<div class='manga-popup'>";
+                $html .= "<div class='manga-card-popup'>";
+                    $html .= "<h3>$title</h3>";
+                    
+                    $html .= "<img src='$imageUrl' alt='$title'>";
         
-            $html .= "<img src='$imageUrl' alt='$title'>";
-            
-            // Affichez le synopsis
-            $html .= "<p class='manga-synopsis'>Synopsis: $synopsis</p>";
-            
-            $html .= "<div class='manga-buttons'>";
-            if ($isProfilePage) {
-                $html .= "<a href='index.php?route=removeFavori&id=$id' class='unfollow-button'>Retirer des favoris</a>";
-            } else {
-                $html .= "<a href='index.php?route=addFavori&id=$id' class='follow-button'>Ajouter aux favoris</a>";
-            }
-            $html .= "<a href='index.php?route=manga_details&id=$id' class='details-button'>Voir les détails</a>";
+                    // Affichez le nom de l'auteur
+                    $html .= "<h4 class='manga-author'>Auteur: $authors</h4>";
+                    
+                    // Affichez le synopsis
+                    $html .= "<h4 class='manga-synopsis'>Synopsis: </h4>";
+                    $html .= "<p class='manga-synopsis'>$synopsis</p>";
+                $html .= "</div>";
             $html .= "</div>";
+
+
             $html .= "</div>";
+
         }
+
         $html .= "</div>";
         return $html;
     }

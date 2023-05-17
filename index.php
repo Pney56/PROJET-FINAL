@@ -21,6 +21,8 @@ require_once 'SRC/controllers/LogoutController.php';
 require_once 'SRC/controllers/FavoriController.php';
 require_once 'SRC/controllers/MiseEnAvantController.php';
 require_once 'SRC/controllers/ContactController.php';
+require_once 'SRC/controllers/Security.php';
+
 
 require_once 'SRC/models/UserModel.php';
 
