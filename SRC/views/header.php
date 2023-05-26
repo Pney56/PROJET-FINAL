@@ -2,42 +2,46 @@
     <div id="logo">
         <a href="accueil"><img src="Public/image/logo.png" alt="Logo"></a>
     </div>
-    <nav class="main-nav">
+
+    <div class="main-nav">
         <ul>
             <li><a href="mise_en_avant">Mise en avant</a></li>
             <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']): ?>
-            <li><a href="admin_mise_en_avant">Gestion Mise en avant</a></li>
+                <li><a href="admin_mise_en_avant">Gestion Mise en avant</a></li>
             <?php endif; ?>
         </ul>
-    </nav>
+    </div>
+
     <div class="search-container">
         <form action="/PROJET-FINAL/accueil" method="GET" id="search">
             <input type="text" name="query" id="search" placeholder="Entrez le nom d'un manga...">
             <button type="submit">Rechercher</button>
         </form>
     </div>
+
     <?php if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']): ?>
-    <div id="profile">
-        <a href="?route=profil">Mon profil</a>
-        <form action="?route=logout" method="post">
-    <button class="logout-button" type="submit">Deconnexion</button>
-</form>
-    </div>
+        <div id="profile">
+            <a href="?route=profil">Mon profil</a>
+            <form action="?route=logout" method="post">
+                <button class="logout-button" type="submit">Déconnexion</button>
+            </form>
+        </div>
     <?php else: ?>
-    <button id="login-btn">Connexion</button>
+        <button id="login-btn">Connexion</button>
     <?php endif; ?>
 </header>
 
 
 <div id="login-container">
     <button id="close-login-btn">&times;</button>
-    
+
     <?php
-        //  Affiche le message d'erreur s'il existe
-        if (isset($errorMessage)) { 
-            echo "<p class=\"error-message\">$errorMessage</p>";
-        }
-        ?>
+    // Affiche le message d'erreur s'il existe
+    if (isset($errorMessage)) {
+        echo "<p class=\"error-message\">$errorMessage</p>";
+    }
+    ?>
+
     <main class="formulaire">
         <h1 class="titre-form">RABURARI</h1>
         <form class="sign-in" action="index.php?route=login" method="post">

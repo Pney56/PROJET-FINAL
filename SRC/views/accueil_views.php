@@ -18,10 +18,9 @@
         <section id="highlighted-manga">
             <h2>MANGA</h2>
             <?php
-            // Afficher le contenu de $mangaHtml
+            // Afficher le contenu de $searchHtml contenant les résultats de recherche de mangas
             echo $searchHtml; 
-            // echo $mangaHtml;
-        ?>
+            ?>
         </section>
     </main>
 

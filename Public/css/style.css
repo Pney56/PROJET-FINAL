@@ -148,154 +148,90 @@ body {
 
 
 /* ----------------------------------------------------- HEADER ------------------------------------------------- */
-
-/* Header */
+/* Styles pour le conteneur principal */
 header {
+  background-color: #ff5555; /* Fond rouge plus intense, ajustez la couleur selon vos préférences */
+  padding: 10px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  background-color: #2C3E50;
-  padding: 10px 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  position: relative;
+  justify-content: space-between;
 }
 
-/* Logo */
+/* Style du logo */
 #logo img {
-  width: 200px;
+  width: 45%; /* Ajustez la taille selon vos préférences */
   height: auto;
-  margin-top: -40px;
-  margin-bottom: -40px;
 }
 
-/* Navigation */
+/* Style de la navigation principale */
 .main-nav ul {
-  display: flex;
   list-style: none;
-  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 .main-nav ul li {
-  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .main-nav ul li a {
+  color: #fff;
   text-decoration: none;
-  color: #ffffff;
   font-size: 16px;
-  transition: color 0.3s;
+  font-weight: bold;
 }
 
-.main-nav ul li a:hover {
-  color: #E74C3C;
-}
-
-/* Recherche */
+/* Style de la barre de recherche */
 .search-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 500px;
+  flex-grow: 1;
+  margin: 0 20px; /* Ajustez la marge selon vos préférences */
 }
 
-.search-container input {
-  padding: 4px 12px;
-  font-size: 14px;
-  width: 500px;
-  border-radius: 4px;
-  border: 1px solid #E74C3C;
-  z-index: 1;
-}
-
-.search-container button {
-  position: absolute;
-  right: 0;
-  background-color: #E74C3C;
-  color: #FFFFFF;
+.search-container input[type="text"] {
+  width: 30%;
+  padding: 5px;
+  border-radius: 5px;
   border: none;
-  border-radius: 4px;
-  padding: 5px 16px;
   font-size: 14px;
+}
+
+.search-container button[type="submit"] {
+  background-color: #fff;
+  color: #ff5555; /* Couleur du texte rouge, ajustez la couleur selon vos préférences */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  z-index: 2;
 }
 
-.search-container button:hover {
-  background-color: #C0392B;
-}
-
-/* Profil */
+/* Style du profil */
 #profile {
   display: flex;
   align-items: center;
 }
 
 #profile a {
-  color: #ffffff;
+  background-color: #fff;
+  color: #ff5555; /* Couleur du texte rouge, ajustez la couleur selon vos préférences */
+  padding: 5px 10px;
+  border-radius: 5px;
   text-decoration: none;
-  font-size: 16px;
-  margin-right: 10px;
-  transition: color 0.3s;
-}
-
-#profile a:hover {
-  color: #E74C3C;
+  margin-left: 10px;
 }
 
 .logout-button {
-  background-color: #E74C3C;
-  color: #FFFFFF;
+  background-color: #fff;
+  color: #ff5555; /* Couleur du texte rouge, ajustez la couleur selon vos préférences */
+  padding: 5px 10px;
+  border-radius: 5px;
   border: none;
-  border-radius: 4px;
-  padding: 4px 8px;
-  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin-left: 10px;
 }
 
-.logout-button:hover {
-  background-color: #C0392B;
-}
+/* ----------------------------------------------------- FIN HEADER ------------------------------------------------- */
 
-/* ------------------------------------------- HEADER MEDIA QUERIES---------------------------------------- */
-
-/* Media Queries */
-@media screen and (max-width: 767px) {
-  header {
-    flex-direction: column;
-    padding: 35px;
-
-  }
-
-  #logo img {
-    width: 150px;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .main-nav ul {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-  }
-
-  .main-nav ul li {
-    margin-left: 0;
-    margin-bottom: 10px;
-  }
-
-  .search-container {
-    width: 100%;
-    margin-top: 15px;
-  }
-
-  .search-container input {
-    width: 100%;
-  }
-}
-
-/* ------------------------------------------ FIN HEADER MEDIA QUERIES --------------------------------------- */
 
 /* -------------------------------------------------- FOOTER --------------------------------------------------*/ 
 
@@ -359,7 +295,8 @@ footer {
 
 .manga-card img {
   width: 100%;
-  max-height: 100%;
+  min-height: 50%;
+  max-height: 50%;
   object-fit: cover;
   transition: all 0.3s ease;
   margin: 0 auto;
@@ -415,56 +352,14 @@ footer {
   color: #E74C3C;
 }
 
-
-
 .manga-buttons {
   display: flex;
   justify-content: space-between;
 }
 
-.manga-card:hover .manga-popup {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px;
-  z-index: 1;
-}
-
-
-
-
-
-.manga-popup {
-  display: none;
-}
-
-
-
-
-.manga-synopsis {
-  max-height: 120px; /* Définir la hauteur maximale souhaitée */
-  overflow: hidden;
-}
-
-
-
-.synopsis-cropped::after {
-  content: "..."; /* Le texte ou l'icône d'indication visuelle que vous souhaitez utiliser */
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  padding: 2px 4px;
-}
+/* ------------------------------------------------- POP-UP Section Manga  --------------------------------------------- */ 
+                                                            /*-*/
+/* ------------------------------------------------- POP-UP Section Manga  --------------------------------------------- */ 
 
 /* ------------------------------------------------- FIN Section Manga  --------------------------------------------- */ 
 
@@ -667,107 +562,150 @@ footer {
 
 /* --------------------------------------------- DEBUT page Detail Manga ------------------------------------- */
 
-
 .manga-details-container {
-  background-color: #FFFFFF;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 2rem 0;
-}
-
-.manga-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #333;
-  text-align: center;
-}
-
-.manga-details {
-  display: block;
-  margin-bottom: 2rem;
-}
-
-.manga-image {
-  display: block;
-  max-width: 100%;
-  margin: 0 auto;
-  border: 3px solid #333;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-}
-
-.manga-synopsis-container {
-  display: block;
-}
-
-.manga-synopsis-title {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.manga-synopsis {
-  font-size: 1rem;
-  color: #666;
-}
-
-.manga-info {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.manga-date-title,
-.manga-genres-title,
-.manga-authors-title {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.manga-status,
-.manga-start-date,
-.manga-end-date {
-  margin-bottom: 1rem;
-  color: #666;
-}
-
-.manga-genres-list,
-.manga-authors-list {
-  list-style-type: none;
-  margin-bottom: 1rem;
-}
-
-.manga-genre,
-.manga-author {
-  color: #666;
-  margin-bottom: 0.5rem;
-}
-
-.manga-additional-images-title {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.manga-additional-images {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
 
-.manga-additional-images img {
-  max-width: 100%;
-  border: 3px solid #333;
-  border-radius: 5px;
 }
 
 
+.manga-details-container .manga-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.manga-details-container .manga-title {
+  font-size: 5em; /* Vous pouvez changer la taille comme vous voulez */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.manga-details-container .manga-info-container .manga-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.manga-details-container .manga-info-container .manga-details .manga-image {
+  width: auto;
+  height: auto;
+  margin-right: 20px;
+}
+
+.manga-details-container .manga-info-container .manga-details .manga-info {
+  flex: 1;
+}
+
+.manga-details-container .manga-synopsis-container {
+  width: 100%;
+  text-align: center;
+}
+
+.manga-details-container .manga-info .manga-date-title,
+.manga-details-container .manga-info .manga-genres-title,
+.manga-details-container .manga-info .manga-authors-title {
+  font-weight: bold;
+  margin: 20px 0; /* Augmentez les valeurs pour plus d'espace */
+}
+
+.manga-details-container .manga-info .manga-genres-list li,
+.manga-details-container .manga-info .manga-authors-list li {
+  margin-bottom: 10px; /* Augmentez la valeur pour plus d'espace */
+}
+
+.manga-details-container .manga-info {
+  padding: 20px; /* Ajoutez de l'espace autour de tout le bloc d'informations */
+}
 
 
-/* --------------------------------------------- DEBUT page Detail Manga ------------------------------------- */
+
+/* --------------------------------------------------------------SLIDER ---------------------------------------------------------------*/
+.additional-images-container {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.slider-details {
+  position: relative;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.3s;
+}
+
+.slider-item {
+  flex: 0 0 auto;
+  width: calc(100% / 4);
+  margin-right: 10px;
+}
+
+.slider-item img {
+  width: 80%;
+  height: auto;
+}
+
+.slider-wrapper {
+  overflow: hidden;
+  margin: 0 10%;
+}
+
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5); 
+  color: #000;
+  cursor: pointer;
+  z-index: 10;
+}
+
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+button[disabled] {
+  display: none;
+}
+
+/* --------------------------------------------- FIN page Detail Manga ------------------------------------- */
+/* --------------------------------------------- page Detail Manga responsive------------------------------------- */
+/* Responsive pour une largeur maximale de 767px */
+@media screen and (max-width: 767px) {
+  .manga-details-container .manga-title {
+    font-size: 3em;
+  }
+
+  .slider-item {
+    width: calc(100% / 2);
+  }
+
+  .additional-images-container {
+    display: none;
+  }
+}
+
+
 
 /* --------------------------------------------- DEBUT page Contact ------------------------------------------ */
 
@@ -884,7 +822,3 @@ footer {
 .manga-card:hover .manga-popup {
   display: block;
 }
-
-
-
-/* -------------------------STYLE DU Bloc hoover details manga ----------------------------- */

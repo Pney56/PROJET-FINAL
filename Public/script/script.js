@@ -1,3 +1,4 @@
+
 // Récupération des éléments HTML dont nous avons besoin
 const signInForm = document.querySelector(".sign-in");
 const signUpForm = document.querySelector("#signup-form");
@@ -46,40 +47,4 @@ closeLoginBtn.addEventListener("click", () => {
 
 
 
-
-
-// test pop-up 
-document.addEventListener('DOMContentLoaded', function() {
-  var mangaCards = document.querySelectorAll('.manga-card');
-
-  mangaCards.forEach(function(card) {
-    var popup = card.querySelector('.manga-popup');
-    var image = card.querySelector('img');
-
-    card.addEventListener('mouseenter', function() {
-      popup.style.display = 'block';
-    });
-
-    card.addEventListener('mouseleave', function() {
-      popup.style.display = 'none';
-    });
-  });
-});
-
-
-
-
-
-  // Sélectionner tous les éléments de classe "manga-synopsis"
-  var synopsisElements = document.getElementsByClassName("manga-synopsis");
-
-  // Parcourir tous les éléments et vérifier si le texte est coupé
-  for (var i = 0; i < synopsisElements.length; i++) {
-    var element = synopsisElements[i];
-
-    // Vérifier si le texte est coupé
-    if (element.scrollHeight > element.clientHeight) {
-      element.classList.add("synopsis-cropped");
-    }
-  }
 
