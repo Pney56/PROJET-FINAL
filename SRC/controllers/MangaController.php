@@ -87,47 +87,25 @@ class MangaController {
             // Fin  Variable -----------------------------------------------------------    
 
 
-
-            $html .= "<div class='manga-card'>";
-            
-                $html .= "<h3>$title</h3>";
-
-                $html .= "<img src='$imageUrl' alt='$title'>";
-                
-                 // Affichez le nom de l'auteur
-                $html .= "<h4 class='manga-author main-manga-author'>Auteur: $authors</h4>";
-
-                 // Affichez le synopsis
-                $html .= "<p class='manga-synopsis main-manga-synopsis'>Synopsis: $synopsis</p>";
-            
-
-                $html .= "<div class='manga-buttons'>";
-                    if ($isProfilePage) {
-                        $html .= "<a href='index.php?route=removeFavori&id=$id' class='unfollow-button'>Retirer des favoris</a>";
-                    } else {
-                        $html .= "<a href='index.php?route=addFavori&id=$id' class='follow-button'>Ajouter aux favoris</a>";
-                    }
-                    $html .= "<a href='index.php?route=manga_details&id=$id' class='details-button'>Voir les détails</a>";
+       $html .= "<div class='manga-card'>";
+       $html .= "<h3>$title</h3>";
+       $html .= "<div class='manga-image'>";
+       $html .= "<img src='$imageUrl' alt='$title'>";
+       $html .= "<div class='manga-popup'>";
+       $html .= "<h4 class='manga-author'>Auteur: $authors</h4>";
+       $html .= "<p class='manga-synopsis main-manga-synopsis'>Synopsis: $synopsis</p>";
+       $html .= "</div>";
+       $html .= "</div>";
+       $html .= "<div class='manga-buttons'>";
+       if ($isProfilePage) {
+           $html .= "<a href='index.php?route=removeFavori&id=$id' class='unfollow-button'>Retirer des favoris</a>";
+       } else {
+           $html .= "<a href='index.php?route=addFavori&id=$id' class='follow-button'>Ajouter aux favoris</a>";
+       }
+       $html .= "<a href='index.php?route=manga_details&id=$id' class='details-button'>Voir les détails</a>";
+       $html .= "</div>";
+       $html .= "</div>";
        
-                $html .= "</div>";
-
-            $html .= "<div class='manga-popup'>";
-                $html .= "<div class='manga-card-popup'>";
-                    $html .= "<h3>$title</h3>";
-                    
-                    $html .= "<img src='$imageUrl' alt='$title'>";
-        
-                    // Affichez le nom de l'auteur
-                    $html .= "<h4 class='manga-author'>Auteur: $authors</h4>";
-                    
-                    // Affichez le synopsis
-                    $html .= "<h4 class='manga-synopsis'>Synopsis: </h4>";
-                    $html .= "<p class='manga-synopsis'>$synopsis</p>";
-                $html .= "</div>";
-            $html .= "</div>";
-
-
-            $html .= "</div>";
 
         }
 

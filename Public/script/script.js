@@ -49,29 +49,37 @@ closeLoginBtn.addEventListener("click", () => {
 
 
 // test pop-up 
+document.addEventListener('DOMContentLoaded', function() {
+  var mangaCards = document.querySelectorAll('.manga-card');
 
-var mangaCards = document.getElementsByClassName('manga-card');
+  mangaCards.forEach(function(card) {
+    var popup = card.querySelector('.manga-popup');
+    var image = card.querySelector('img');
 
-for (var i = 0; i < mangaCards.length; i++) {
-    mangaCards[i].addEventListener('mouseenter', function(e) {
-        var mangaPopup = this.querySelector('.manga-popup');
-        mangaPopup.innerHTML = e.target.innerHTML;
-        mangaPopup.style.display = 'block';
-
-        var desiredLeft = e.target.getBoundingClientRect().right;
-        var desiredTop = e.target.getBoundingClientRect().top;
-
-        var overflowRight = desiredLeft + mangaPopup.offsetWidth - window.innerWidth;
-        if (overflowRight > 0) {
-            desiredLeft -= overflowRight;
-        }
-
-        mangaPopup.style.left = desiredLeft + 'px';
-        mangaPopup.style.top = desiredTop + 'px';
+    card.addEventListener('mouseenter', function() {
+      popup.style.display = 'block';
     });
 
-    mangaCards[i].addEventListener('mouseleave', function() {
-        var mangaPopup = this.querySelector('.manga-popup');
-        mangaPopup.style.display = 'none';
+    card.addEventListener('mouseleave', function() {
+      popup.style.display = 'none';
     });
-}
+  });
+});
+
+
+
+
+
+  // Sélectionner tous les éléments de classe "manga-synopsis"
+  var synopsisElements = document.getElementsByClassName("manga-synopsis");
+
+  // Parcourir tous les éléments et vérifier si le texte est coupé
+  for (var i = 0; i < synopsisElements.length; i++) {
+    var element = synopsisElements[i];
+
+    // Vérifier si le texte est coupé
+    if (element.scrollHeight > element.clientHeight) {
+      element.classList.add("synopsis-cropped");
+    }
+  }
+

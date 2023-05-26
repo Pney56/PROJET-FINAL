@@ -54,7 +54,7 @@ class MangaDetailsController {
         $numScoringUsers = $mangaDetails['num_scoring_users'];
         $alternativeTitles = $mangaDetails['alternative_titles'];
         $pictures = $mangaDetails['pictures'];
-        
+    
     ?>
 
         <h1 class='manga-title'><?= $title ?></h1>
