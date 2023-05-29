@@ -13,10 +13,13 @@
 
     <?php require_once __dir__ . '/header.php'; ?>
 
+    
     <main class="fond-sombre">
+    
         <div class="manga-theme">
+      
             <form action="index.php?route=update_profile" method="POST" class="formulaire-modifier">
-
+                <button onclick="goBack()">Retour</button>
                 <div>
                     <p>Votre Pseudo : <?php echo $_SESSION['username']; ?> </p>
                 </div>

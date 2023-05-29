@@ -14,6 +14,7 @@
     <?php require_once __dir__ . '/header.php'; ?>
 
     <main class="container">
+    <div class="profil-container">
         <section class="profil-section">
             <div class="profil-image">
                 <img src="Public/image/image-fixe.jpg" alt="Mon image de profil">
@@ -24,15 +25,17 @@
                 <a href="index.php?route=change_profil" class="profil-modifier">Modifier profil</a>
             </div>
         </section>
-            <!-- -------------------------manga favori------------------------------ -->
-            <section id="highlighted-manga">
-                <h2>Mangas favoris</h2>
-                <?php
-                // Afficher les mangas favoris
-                echo $htmlFavoriMangas;
+    
+        <!-- -------------------------manga favori------------------------------ -->
+        <section id="highlighted-manga">
+            <h2>Mangas favoris</h2>
+            <?php                // Afficher les mangas favoris
+            echo $htmlFavoriMangas;
             ?>
-            </section>
-            <!-- ------------------------------------------------------------------- -->
+        </section>
+        <!-- ------------------------------------------------------------------- -->
+        </div>
+
     </main>
 
 

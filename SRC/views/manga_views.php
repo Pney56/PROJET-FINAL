@@ -10,9 +10,6 @@
                     <h4 class="manga-author">Auteur: <?php echo implode(', ', array_map(function ($author) {
                             return $author['node']['first_name'] . ' ' . $author['node']['last_name'];
                         }, $manga['authors'] ?? [])); ?></h4>
-                    <p class="manga-synopsis main-manga-synopsis">
-                        Synopsis: <?php echo ($manga['synopsis']) && !empty($manga['synopsis']) ? $manga['synopsis'] : "Aucun synopsis pour le moment"; ?>
-                    </p>
                 </div>
             </div>
             <div class="manga-buttons">

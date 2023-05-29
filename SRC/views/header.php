@@ -5,15 +5,15 @@
 
     <div class="main-nav">
         <ul>
-            <li><a href="mise_en_avant">Mise en avant</a></li>
+            <li><a href="?route=mise_en_avant">Mise en avant</a></li>
             <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']): ?>
-                <li><a href="admin_mise_en_avant">Gestion Mise en avant</a></li>
+                <li><a href="?route=admin_mise_en_avant">Gestion Mise en avant</a></li>
             <?php endif; ?>
         </ul>
     </div>
 
     <div class="search-container">
-        <form action="/PROJET-FINAL/accueil" method="GET" id="search">
+        <form action="?route=accueil" method="GET" id="search">
             <input type="text" name="query" id="search" placeholder="Entrez le nom d'un manga...">
             <button type="submit">Rechercher</button>
         </form>

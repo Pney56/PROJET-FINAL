@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Public/css/style.css">
     <script src="Public/script/script.js" defer></script>
-    <title>Gestion des mangas mis en avant</title>
+    <title>RAIBURARI - Admin Mise en avant</title>
 </head>
+
 <body>
-    <?php include 'header.php'; ?>
-    <main>
-        <h1>Gestion des mangas mis en avant</h1>
-        <p>Page réservée aux administrateurs pour gérer les mangas mis en avant.</p>
-        <!-- Ajoutez ici votre formulaire et les fonctionnalités pour gérer les mangas mis en avant -->
+
+    <?php require_once __dir__ . '/header.php'; ?>
+
+    <main class="container">
+    <div class="profil-container">
+
+    
+        <!-- -------------------------manga favori------------------------------ -->
+        <section id="highlighted-manga">
+            <h2>Mangas favoris</h2>
+            <?php                // Afficher les mangas favoris
+            echo $htmlFavoriMangas;
+            ?>
+        </section>
+        <!-- ------------------------------------------------------------------- -->
+        </div>
+
     </main>
-    <?php include 'footer.php'; ?>
+
+
+    <?php require_once __dir__ . '/footer.php'; ?>
+
 </body>
+
 </html>

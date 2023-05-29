@@ -48,3 +48,10 @@ closeLoginBtn.addEventListener("click", () => {
 
 
 
+
+
+// ---------------------------------------------Bouton retour page précédente selon l'histoirique ---------
+function goBack() {
+  window.history.back();
+}
+// --------------------------------------------------------------------------------------------------------
