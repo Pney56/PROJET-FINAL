@@ -25,7 +25,17 @@
                 <a href="index.php?route=change_profil" class="profil-modifier">Modifier profil</a>
             </div>
         </section>
-    
+        
+            <!-- -------------------------notes personnelles------------------------------ -->
+        <section id="personal-notes">
+            <h2>Notes personnelles</h2>
+            <?php
+            // Afficher les notes personnelles
+            echo $htmlPersonalNotes;
+            ?>
+        </section>
+        <!-- ------------------------------------------------------------------- -->
+
         <!-- -------------------------manga favori------------------------------ -->
         <section id="highlighted-manga">
             <h2>Mangas favoris</h2>
@@ -37,7 +47,6 @@
         </div>
 
     </main>
-
 
     <?php require_once __dir__ . '/footer.php'; ?>
 

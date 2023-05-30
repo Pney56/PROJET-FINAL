@@ -26,6 +26,8 @@ require_once 'SRC/controllers/FavoriController.php';
 require_once 'SRC/controllers/MiseEnAvantController.php';
 require_once 'SRC/controllers/ContactController.php';
 require_once 'SRC/controllers/Security.php';
+require_once 'SRC/controllers/NotePersonnelController.php';
+
 
 require_once 'SRC/models/UserModel.php';
 
@@ -37,6 +39,8 @@ $userController = new UserController();
 $apiController = new ApiController();
 $accueilController = new AccueilController();
 $contactController = new ContactController();
+$notePersonnelController = new NotePersonnelController();
+
 
 if (isset($_GET['route'])) {
     $action = $_GET['route'];
@@ -166,6 +170,33 @@ if (isset($_GET['route'])) {
             $contactController->handleFormSubmission();
         }
     break;
+
+
+
+
+    case 'addNote':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $notePersonnelController->addNote($_POST['username'], $_POST['api_id'], $_POST['note']);
+        }
+    break;
+    
+    case 'updateNote':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $notePersonnelController->updateNote($_POST['username'], $_POST['api_id'], $_POST['note']);
+        }
+    break;
+    
+    case 'deleteNote':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $notePersonnelController->deleteNote($_POST['username'], $_POST['api_id']);
+        }
+    break;
+
+
+
+
+
+
 
     default:
     echo "Page not found.";
