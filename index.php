@@ -5,11 +5,9 @@ if (!isset($_SESSION)) {
 }
 require 'vendor/autoload.php';
 
-
 use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
-
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -29,22 +27,16 @@ require_once 'SRC/controllers/MiseEnAvantController.php';
 require_once 'SRC/controllers/ContactController.php';
 require_once 'SRC/controllers/Security.php';
 
-
 require_once 'SRC/models/UserModel.php';
-
 
 // Initialiser les modèles
 $userModel = new UserModel();
-
-
 
 // Initialiser le contrôleur
 $userController = new UserController();
 $apiController = new ApiController();
 $accueilController = new AccueilController();
 $contactController = new ContactController();
-
-
 
 if (isset($_GET['route'])) {
     $action = $_GET['route'];
@@ -80,8 +72,6 @@ if (isset($_GET['route'])) {
     case 'apiCallback':
         $apiController->handleApiCallback();
     break;
-
-
         
     case 'manga_details':
         $id = isset($_GET['id']) ? intval($_GET['id']) : null;
@@ -106,8 +96,7 @@ if (isset($_GET['route'])) {
             $controller = new ProfileEditController();
             $controller->updateProfile();
         }
-    break;
-    
+    break;   
 
     case 'delete_profile':
         $controller = new ProfileEditController();
@@ -124,7 +113,6 @@ if (isset($_GET['route'])) {
             exit;
         }
     break;
-
 
     case 'addFavori':
         $mangaId = isset($_GET['id']) ? intval($_GET['id']) : null;
@@ -149,8 +137,6 @@ if (isset($_GET['route'])) {
             echo "Erreur : Manga ID ou utilisateur non connecté.";
         }
     break;
-
-
 
     case 'mise_en_avant':
         $controller = new MiseEnAvantController();
@@ -180,13 +166,11 @@ if (isset($_GET['route'])) {
             $contactController->handleFormSubmission();
         }
     break;
-    
-
-
 
     default:
     echo "Page not found.";
     break;
+    
 
 }} else {
     // Aucune action spécifiée, afficher la page d'accueil par défaut ou une page d'erreur
