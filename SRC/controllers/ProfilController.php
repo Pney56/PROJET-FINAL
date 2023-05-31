@@ -13,7 +13,8 @@ class ProfileController {
         }
     
     
-        public function index() {
+        public function index()
+        {
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
@@ -30,14 +31,18 @@ class ProfileController {
                         "node" => $manga
                     ];
                 }
-                $htmlFavoriMangas = MangaController::displaySearchResults(["data" => $favoriMangas], true);
+                
+                // Créez une instance du contrôleur MangaController
+                $mangaController = new MangaController();
+                
+                // Générer le contenu HTML de la nouvelle vue alternative des mangas favoris
+                $htmlFavoriMangas = $mangaController->displayAlternativeView(["data" => $favoriMangas]);
+
         
-                require_once __dir__ . '/../views/profil_views.php';
+                require_once __DIR__ . '/../views/profil_views.php';
             } else {
                 header('Location: /PROJET-FINAL/login');
                 exit();
             }
         }
-        
-
 }

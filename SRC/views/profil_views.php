@@ -26,18 +26,8 @@
             </div>
         </section>
         
-            <!-- -------------------------notes personnelles------------------------------ -->
-        <section id="personal-notes">
-            <h2>Notes personnelles</h2>
-            <?php
-            // Afficher les notes personnelles
-            echo $htmlPersonalNotes;
-            ?>
-        </section>
-        <!-- ------------------------------------------------------------------- -->
-
         <!-- -------------------------manga favori------------------------------ -->
-        <section id="highlighted-manga">
+        <section id="highlighted-manga" class="manga-alt">
             <h2>Mangas favoris</h2>
             <?php                // Afficher les mangas favoris
             echo $htmlFavoriMangas;

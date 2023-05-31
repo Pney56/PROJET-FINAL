@@ -24,7 +24,7 @@ class MangaController {
         $queryParams = http_build_query([
             'q' => $query,
             'limit' => $limit,
-            'fields' => 'id,title,main_picture,authors{first_name,last_name},synopsis',  // Ajoutez les champs ici
+            'fields' => 'id,title,main_picture,authors{first_name,last_name},synopsis',  // Ajoutez les champs ici pour avoir plus d'information
             'id' => $id,
         ]);
         $urlWithParams = $url . '?' . $queryParams;
@@ -41,7 +41,7 @@ class MangaController {
     }
     
 
-    public static function displaySearchResults($searchResults, $isProfilePage = false) {
+    public static function displaySearchResults($searchResults) {
         ob_start(); // Démarre la mise en tampon de sortie
         
         $results = ($searchResults ?? [])['data'] ?? [];
@@ -58,7 +58,24 @@ class MangaController {
         return $html;
     }
     
+    public function displayAlternativeView($searchResults)
+    {
+    ob_start(); // Démarre la mise en tampon de sortie
     
+    $results = ($searchResults ?? [])['data'] ?? [];
+
+    if (empty($results)) {
+        $randomQuery = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 10);
+        $results = array_merge($results, ($additionalResults ?? [])['data'] ?? []);
+    }
+
+    include __DIR__ . '/../Views/manga_views_alt.php';  // Inclut le fichier de vue alternative contenant le code HTML
+
+    $htmlprofil = ob_get_clean(); // Récupère le contenu de la mise en tampon de sortie et nettoie la mise en tampon
+
+    return $htmlprofil;
+    }
+
     
     
 }

@@ -13,11 +13,9 @@
                 </div>
             </div>
             <div class="manga-buttons">
-                <?php if ($isProfilePage): ?>
-                    <a href="index.php?route=removeFavori&id=<?php echo htmlspecialchars($manga['id'] ?? ""); ?>" class="unfollow-button">Retirer des favoris</a>
-                <?php else: ?>
-                    <a href="index.php?route=addFavori&id=<?php echo htmlspecialchars($manga['id'] ?? ""); ?>" class="follow-button">Ajouter aux favoris</a>
-                <?php endif; ?>
+
+                <a href="index.php?route=addFavori&id=<?php echo htmlspecialchars($manga['id'] ?? ""); ?>" class="follow-button">Ajouter aux favoris</a>
+
                 <a href="index.php?route=manga_details&id=<?php echo htmlspecialchars($manga['id'] ?? ""); ?>" class="details-button">Voir les détails</a>
             </div>
         </div>

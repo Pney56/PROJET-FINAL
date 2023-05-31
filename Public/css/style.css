@@ -288,10 +288,6 @@ footer {
   transition: all 0.3s ease;
 }
 
-.manga-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
-}
 
 .manga-card img {
   width: 100%;
@@ -363,43 +359,115 @@ footer {
 
 /* ------------------------------------------------- FIN Section Manga  --------------------------------------------- */ 
 
- /* ----------------------------------------- DEBUT Section Manga MEDIA QUERIES -------------------------------------- */ 
-/* Media query pour les écrans de 767px ou moins */
-@media screen and (max-width: 767px) {
-  #highlighted-manga h2 {
-    font-size: 48px;
-    margin-top: 50px;
-  }
-
-  .manga-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .manga-card {
-    width: 90%;
-    margin-bottom: 20px;
-  }
-
-  .manga-card img {
-    width: 100%;
-    max-height: 100%;
-  }
-
-  .follow-button, .details-button {
-    width: 100%;
-  }
-
-  .follow-button {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  .details-button {
-    margin-left: 0;
-  }
+/* ------------------------------------------------- DÉBUT Section Manga PROFIL --------------------------------------------- */
+#highlighted-manga h2 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 76px;
+  margin-bottom: 25px;
+  text-align: center;
+  margin-top: 100px;
+  color: #2C3E50;
 }
-/* ------------------------------------------ FIN Senction Manga MEDIA QUERIES --------------------------------------- */
+
+.manga-grid-alt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.manga-card-alt {
+  min-width: 1200px;
+  max-height: 600px;
+  margin: 0 auto;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  padding-bottom: 50px;
+  margin-top: 50px;
+  margin-left: 5%;
+}
+
+
+
+.manga-image-alt {
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+}
+
+
+.manga-card-alt h3 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 24px;
+  margin: 10px;
+  color: #34495E;
+}
+
+.manga-card-alt p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: 10px;
+  color: #7F8C8D;
+}
+
+.manga-card-alt a {
+  display: block;
+  background-color: #E74C3C;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+.unfollow-button-alt,
+.details-button-alt {
+  display: inline-block;
+  background-color: #E74C3C;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  width: 48%;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.unfollow-button-alt:hover,
+.details-button-alt:hover {
+  background-color: #4c555e;
+  border: 2px solid #E74C3C;
+  color: #E74C3C;
+}
+
+.manga-buttons-alt {
+  display: flex;
+  justify-content: space-between;
+}
+
+.manga-content{
+  display: flex;
+
+}
+
+.comment-block {
+  max-width: 80%;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* ------------------------------------------------- FIN Section Manga PROFIL --------------------------------------------- */
+
 
 
 /* ------------------------------------------ DEBUT page profil Utilisateur --------------------------------------- */
