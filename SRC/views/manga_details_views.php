@@ -59,7 +59,6 @@
     </section>
 
 
-
     <section class="additional-images-container">
         <div class="slider-details">
             <div class="slider-wrapper">

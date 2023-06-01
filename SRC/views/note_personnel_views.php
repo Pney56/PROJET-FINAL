@@ -1,4 +1,4 @@
-    <div class="container">
+   <div class="container">
 
         <!-- Bloc pour créer une note -->
         <div class="note-section note-create" id="create-note-block">
