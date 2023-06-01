@@ -1,39 +1,27 @@
-<?php 
+<?php
 
-// NotePersonnelController.php
-require_once 'SRC/models/NotePersonnelModel.php';
-require_once 'SRC/models/MangaModel.php';
+require_once 'SRC/models/NoteModel.php';
 
-class NotePersonnelController {
-    private $notePersonnelModel;
-    private $mangaModel;
+class NoteController {
+    private $noteModel;
 
     public function __construct() {
-        $this->notePersonnelModel = new NotePersonnelModel();
-        $this->mangaModel = new MangaModel();
+        $this->noteModel = new NoteModel();
     }
 
-    public function addNote($username, $api_id, $note) {
-        // Vérifie si le manga est en favoris avant d'ajouter une note
-        if (in_array($api_id, $this->mangaModel->getFavoriMangas($username))) {
-            return $this->notePersonnelModel->addNote($username, $api_id, $note);
-        }
-        return false;
+    public function getNotes($username) {
+        return $this->noteModel->getNotes($username);
     }
 
-    public function updateNote($username, $api_id, $note) {
-        // Vérifie si le manga est en favoris avant de mettre à jour la note
-        if (in_array($api_id, $this->mangaModel->getFavoriMangas($username))) {
-            return $this->notePersonnelModel->updateNote($username, $api_id, $note);
-        }
-        return false;
+    public function addNote($username, $apiId, $note) {
+        return $this->noteModel->addNote($username, $apiId, $note);
     }
 
-    public function deleteNote($username, $api_id) {
-        return $this->notePersonnelModel->deleteNote($username, $api_id);
+    public function updateNote($username, $noteId, $updatedNote) {
+        return $this->noteModel->updateNote($username, $noteId, $updatedNote);
     }
 
-    public function getNote($username, $api_id) {
-        return $this->notePersonnelModel->getNote($username, $api_id);
+    public function deleteNote($username, $noteId) {
+        return $this->noteModel->deleteNote($username, $noteId);
     }
 }

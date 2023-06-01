@@ -97,12 +97,19 @@ INSERT INTO `manga` (`api_id`, `Titre`) VALUES
 -- Structure de la table `note_personnel`
 --
 
+
 CREATE TABLE `note_personnel` (
-  `id_note` varchar(255) NOT NULL,
-  `note` varchar(255) DEFAULT NULL,
+  `id_note` INT(11) NOT NULL AUTO_INCREMENT,
+  `note` TEXT DEFAULT NULL,
   `api_id` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL
+  `username` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_note`),
+  KEY `api_id` (`api_id`),
+  KEY `username` (`username`),
+  CONSTRAINT `fk_note_personnel_manga` FOREIGN KEY (`api_id`) REFERENCES `manga` (`api_id`),
+  CONSTRAINT `fk_note_personnel_utilisateur` FOREIGN KEY (`username`) REFERENCES `utilisateur` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 -- --------------------------------------------------------
 

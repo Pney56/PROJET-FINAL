@@ -39,7 +39,7 @@ $userController = new UserController();
 $apiController = new ApiController();
 $accueilController = new AccueilController();
 $contactController = new ContactController();
-$notePersonnelController = new NotePersonnelController();
+$notePersonnelController = new NoteController();
 
 
 if (isset($_GET['route'])) {
@@ -172,28 +172,34 @@ if (isset($_GET['route'])) {
     break;
 
 
-
-
     case 'addNote':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $notePersonnelController->addNote($_POST['username'], $_POST['api_id'], $_POST['note']);
+            $username = $_SESSION['username']; 
+            $apiId = $_POST['api_id'];
+            $note = $_POST['note'];
+
+            $notePersonnelController->addNote($username, $apiId, $note);
         }
-    break;
-    
+        break;
+
     case 'updateNote':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $notePersonnelController->updateNote($_POST['username'], $_POST['api_id'], $_POST['note']);
+            $username = $_SESSION['username']; 
+            $apiId = $_POST['api_id'];
+            $note = $_POST['note'];
+
+            $notePersonnelController->updateNote($username, $apiId, $note);
         }
-    break;
-    
+        break;
+
     case 'deleteNote':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $notePersonnelController->deleteNote($_POST['username'], $_POST['api_id']);
+            $username = $_SESSION['username']; 
+            $apiId = $_POST['api_id'];
+
+            $notePersonnelController->deleteNote($username, $apiId);
         }
-    break;
-
-
-
+        break;
 
 
 
