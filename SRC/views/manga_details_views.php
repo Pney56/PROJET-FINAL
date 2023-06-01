@@ -46,6 +46,7 @@
                             <?php endforeach; ?>
                         </ul>
                     </div>
+                    <?php require_once __dir__ . '/note_personnel_views.php'; ?>
                 </div>
                 <div class="manga-synopsis-container">
                     <h2 class='manga-synopsis-title'>Synopsis</h2>
@@ -58,7 +59,6 @@
     </section>
 
 
-    <?php require_once __dir__ . '/note_personnel_views.php'; ?>
 
     <section class="additional-images-container">
         <div class="slider-details">

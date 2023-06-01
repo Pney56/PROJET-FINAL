@@ -343,7 +343,7 @@ footer {
 
 .follow-button:hover,
 .details-button:hover {
-  background-color: #4c555e;
+  background-color: #ffffff;
   border: 2px solid #E74C3C;
   color: #E74C3C;
 }
@@ -371,30 +371,31 @@ footer {
 
 .manga-grid-alt {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .manga-card-alt {
-  min-width: 1200px;
-  max-height: 600px;
-  margin: 0 auto;
+  position: relative;
+  display: inline-block;
+  width: 20%;
+  margin: 20px;
   background-color: #f8f8f8;
   border: 1px solid #ccc;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  padding-bottom: 50px;
-  margin-top: 50px;
-  margin-left: 5%;
+  transition: all 0.3s ease;
 }
 
 
 
-.manga-image-alt {
-  width: 50%;
-  height: auto;
-  overflow: hidden;
+.manga-card-alt img {
+  width: 100%;
+  min-height: 50%;
+  max-height: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  margin: 0 auto;
 }
 
 
@@ -443,7 +444,7 @@ footer {
 
 .unfollow-button-alt:hover,
 .details-button-alt:hover {
-  background-color: #4c555e;
+  background-color: #ffffff;
   border: 2px solid #E74C3C;
   color: #E74C3C;
 }
@@ -451,20 +452,13 @@ footer {
 .manga-buttons-alt {
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  margin-left: -10px;
 }
 
-.manga-content{
-  display: flex;
 
-}
 
-.comment-block {
-  max-width: 80%;
-  background-color: #f8f8f8;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-top: 10px;
-}
 
 /* ------------------------------------------------- FIN Section Manga PROFIL --------------------------------------------- */
 
@@ -891,4 +885,55 @@ button[disabled] {
 
 .manga-card:hover .manga-popup {
   display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ****************************************** SECTION NOTE PERSONNEL **********************/
+
+.note-section {
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.note-section.active {
+  display: flex; /* Les sections actives sont affichées */
+}
+
+.note-header {
+  margin-bottom: 20px;
+}
+
+.note-input {
+  flex-grow: 1;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+}
+
+.note-button {
+  background-color: #009578;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  align-self: flex-start;
+}
+
+.note-button:hover {
+  background-color: #007362;
 }

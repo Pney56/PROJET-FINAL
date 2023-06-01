@@ -201,8 +201,13 @@ if (isset($_GET['route'])) {
         }
         break;
 
-
-
+        case 'getNote':
+            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+                $apiId = $_GET['id'];
+                $notePersonnelController->getNotes($apiId);
+            }
+        break;
+    
 
     default:
     echo "Page not found.";

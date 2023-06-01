@@ -9,19 +9,56 @@ class NoteController {
         $this->noteModel = new NoteModel();
     }
 
-    public function getNotes($username) {
-        return $this->noteModel->getNotes($username);
+    public function getNotes($apiId) {
+        if(isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+            $notes = $this->noteModel->getNotes($username, $apiId);
+            echo json_encode($notes);
+        }
+        else {
+            http_response_code(401);
+            echo json_encode(["message" => "Unauthorized"]);
+        }
     }
 
-    public function addNote($username, $apiId, $note) {
-        return $this->noteModel->addNote($username, $apiId, $note);
+    public function addNote() {
+        if(isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+            $apiId = $_POST['api_id'];
+            $note = $_POST['note'];
+            $result = $this->noteModel->addNote($username, $apiId, $note);
+            echo json_encode(["success" => $result]);
+        }
+        else {
+            http_response_code(401);
+            echo json_encode(["message" => "Unauthorized"]);
+        }
     }
 
-    public function updateNote($username, $noteId, $updatedNote) {
-        return $this->noteModel->updateNote($username, $noteId, $updatedNote);
+    public function updateNote() {
+        if(isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+            $apiId = $_POST['api_id'];
+            $updatedNote = $_POST['updated_note'];
+            $result = $this->noteModel->updateNote($username, $apiId, $updatedNote);
+            echo json_encode(["success" => $result]);
+        }
+        else {
+            http_response_code(401);
+            echo json_encode(["message" => "Unauthorized"]);
+        }
     }
 
-    public function deleteNote($username, $noteId) {
-        return $this->noteModel->deleteNote($username, $noteId);
+    public function deleteNote() {
+        if(isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+            $apiId = $_POST['api_id'];
+            $result = $this->noteModel->deleteNote($username, $apiId);
+            echo json_encode(["success" => $result]);
+        }
+        else {
+            http_response_code(401);
+            echo json_encode(["message" => "Unauthorized"]);
+        }
     }
 }

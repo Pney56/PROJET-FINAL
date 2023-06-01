@@ -97,19 +97,12 @@ INSERT INTO `manga` (`api_id`, `Titre`) VALUES
 -- Structure de la table `note_personnel`
 --
 
-
 CREATE TABLE `note_personnel` (
-  `id_note` INT(11) NOT NULL AUTO_INCREMENT,
-  `note` TEXT DEFAULT NULL,
+  `id_note` varchar(255) NOT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `api_id` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_note`),
-  KEY `api_id` (`api_id`),
-  KEY `username` (`username`),
-  CONSTRAINT `fk_note_personnel_manga` FOREIGN KEY (`api_id`) REFERENCES `manga` (`api_id`),
-  CONSTRAINT `fk_note_personnel_utilisateur` FOREIGN KEY (`username`) REFERENCES `utilisateur` (`username`)
+  `username` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 
 -- --------------------------------------------------------
 
@@ -152,10 +145,8 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`username`, `email`, `mot_de_passe`, `isAdmin`) VALUES
-('admin', 'admin@raiburari.fr', '$2y$10$CrFLY28JLMZ6JmnPBx1k0.jcftahIxAyK7m5gHw2g3nwIdIwHsGZm', 1),
-('Karlito', 'thomaskarl@hotmail.com', '$2y$10$ioCBO2eaaXtGvnOXB9FbFO3BCgLHsvVtXaUwbGr5mhy9gyOrHUi0m', 0),
-('nicolas', 'nicolas@hotmail.fr', '$2y$10$5Ahc0Zd4DCrwspPtp1olW.50g2U3UJUigFuDZREnPX2zYiw/3Kr86', 0),
-('test', 'test@test.fr', '$2y$10$cHbnXEfHCLfy/oZDcF8qXeRybngO4xynIuFS8fHhGobxcVV5D.9CK', 0);
+
+('test', 'test@test.fr', '$2y$10$cHbnXEfHCLfy/oZDcF8qXeRybngO4xynIuFS8fHhGobxcVV5D.9CK', 1);
 
 --
 -- Index pour les tables déchargées

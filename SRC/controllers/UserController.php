@@ -76,7 +76,7 @@ class UserController {
         } else {
             $this->userModel->createUser($username, $email, $password);
             // Redirection vers la page de connexion
-            header('Location: accueil');
+            header('Location: ?route=accueil');
             exit();
         }
     }
