@@ -892,3 +892,70 @@ button[disabled] {
 .manga-card:hover .manga-popup {
   display: block;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.note-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 80%;
+  min-height: 80%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.note-section {
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.note-section.active {
+  display: flex; /* Les sections actives sont affichées */
+}
+
+.note-header {
+  margin-bottom: 20px;
+}
+
+.note-input {
+  flex-grow: 1;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+}
+
+.note-button {
+  background-color: #009578;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  align-self: flex-start;
+}
+
+.note-button:hover {
+  background-color: #007362;
+}

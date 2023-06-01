@@ -175,7 +175,7 @@ if (isset($_GET['route'])) {
     case 'addNote':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_SESSION['username']; 
-            $apiId = $_POST['api_id'];
+            $apiId = $data['api_id'];
             $note = $_POST['note'];
 
             $notePersonnelController->addNote($username, $apiId, $note);
@@ -185,7 +185,7 @@ if (isset($_GET['route'])) {
     case 'updateNote':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_SESSION['username']; 
-            $apiId = $_POST['api_id'];
+            $apiId = $data['api_id'];
             $note = $_POST['note'];
 
             $notePersonnelController->updateNote($username, $apiId, $note);
@@ -195,7 +195,7 @@ if (isset($_GET['route'])) {
     case 'deleteNote':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_SESSION['username']; 
-            $apiId = $_POST['api_id'];
+            $apiId = $data['api_id'];
 
             $notePersonnelController->deleteNote($username, $apiId);
         }

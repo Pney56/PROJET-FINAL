@@ -57,8 +57,8 @@
         </div>
     </section>
 
-
     <?php require_once __dir__ . '/note_personnel_views.php'; ?>
+
 
     <section class="additional-images-container">
         <div class="slider-details">
