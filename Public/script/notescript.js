@@ -2,7 +2,16 @@
 let username = "username";
 let baseUrl = "index.php?route=";
 
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(window.location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
 $(document).ready(function() {
+    let api_id = getUrlParameter('id');
+
     // On initialise avec le bloc de création des notes
     showCreateNoteBlock();
 
@@ -15,7 +24,7 @@ $(document).ready(function() {
                 url: baseUrl + "addNote",
                 data: {
                     'username': username,
-                    'api_id': 'yourApiId', // Remplacer par l'ID de l'API approprié
+                    'api_id': api_id,
                     'note': note
                 },
                 success: function(data) {
@@ -45,7 +54,7 @@ $(document).ready(function() {
             url: baseUrl + "deleteNote",
             data: {
                 'username': username,
-                'api_id': 'yourApiId' // Remplacer par l'ID de l'API approprié
+                'api_id': api_id
             },
             success: function(data) {
                 showCreateNoteBlock();
@@ -65,7 +74,7 @@ $(document).ready(function() {
                 url: baseUrl + "updateNote",
                 data: {
                     'username': username,
-                    'api_id': 'yourApiId', // Remplacer par l'ID de l'API approprié
+                    'api_id': api_id,
                     'note': note
                 },
                 success: function(data) {
