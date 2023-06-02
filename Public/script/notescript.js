@@ -1,6 +1,6 @@
-// Nous avons besoin d'un nom d'utilisateur pour gérer les notes. Assurez-vous de le remplacer par la valeur appropriée.
 let username = "username";
 let baseUrl = "index.php?route=";
+let note_id; // Variable pour stocker l'ID de la note
 
 function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -12,8 +12,23 @@ function getUrlParameter(name) {
 $(document).ready(function() {
     let api_id = getUrlParameter('id');
 
-    // On initialise avec le bloc de création des notes
-    showCreateNoteBlock();
+    // Récupérer les notes existantes
+    $.ajax({
+        type: "GET",
+        url: baseUrl + "getNote&id=" + api_id,
+        success: function(data) {
+            console.log(data);
+            if (data.length > 0) {
+                note_id = data[0].id_note;
+                showDisplayNoteBlock(data[0].note);
+            } else {
+                showCreateNoteBlock();
+            }
+        },
+        error: function(data) {
+            console.error("Erreur lors de la récupération des notes.");
+        }
+    });
 
     // Bouton d'ajout de note
     $("#submit-note").click(function() {
@@ -54,7 +69,7 @@ $(document).ready(function() {
             url: baseUrl + "deleteNote",
             data: {
                 'username': username,
-                'api_id': api_id
+                'note_id': note_id
             },
             success: function(data) {
                 showCreateNoteBlock();
@@ -74,7 +89,7 @@ $(document).ready(function() {
                 url: baseUrl + "updateNote",
                 data: {
                     'username': username,
-                    'api_id': api_id,
+                    'note_id': note_id,
                     'note': note
                 },
                 success: function(data) {
@@ -96,6 +111,7 @@ function showCreateNoteBlock() {
 
 function showDisplayNoteBlock(note) {
     $("#note-text").text(note);
+    $("#note-view").text(note);
     $("#create-note-block").hide();
     $("#display-note-block").show();
     $("#edit-note-block").hide();

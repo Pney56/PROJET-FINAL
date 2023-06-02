@@ -38,9 +38,9 @@ class NoteController {
     public function updateNote() {
         if(isset($_SESSION['username'])) {
             $username = $_SESSION['username'];
-            $apiId = $_POST['api_id'];
+            $noteId = $_POST['note_id'];
             $updatedNote = $_POST['updated_note'];
-            $result = $this->noteModel->updateNote($username, $apiId, $updatedNote);
+            $result = $this->noteModel->updateNote($username, $noteId, $updatedNote);
             echo json_encode(["success" => $result]);
         }
         else {
@@ -48,12 +48,12 @@ class NoteController {
             echo json_encode(["message" => "Unauthorized"]);
         }
     }
-
+    
     public function deleteNote() {
         if(isset($_SESSION['username'])) {
             $username = $_SESSION['username'];
-            $apiId = $_POST['api_id'];
-            $result = $this->noteModel->deleteNote($username, $apiId);
+            $noteId = $_POST['note_id'];
+            $result = $this->noteModel->deleteNote($username, $noteId);
             echo json_encode(["success" => $result]);
         }
         else {

@@ -9,11 +9,12 @@ class NoteModel {
         $this->db = Database::getInstance();
     }
 
-    public function getNotes($username) {
-        $query = $this->db->prepare("SELECT * FROM note_personnel WHERE username = :username");
-        $query->execute(['username' => $username]);
+    public function getNotes($username, $apiId) {
+        $query = $this->db->prepare("SELECT * FROM note_personnel WHERE username = :username AND api_id = :api_id");
+        $query->execute(['username' => $username, 'api_id' => $apiId]);
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+    
 
     public function addNote($username, $apiId, $note) {
         $query = $this->db->prepare("INSERT INTO note_personnel (note, api_id, username) VALUES (:note, :api_id, :username)");
