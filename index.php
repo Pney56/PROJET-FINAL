@@ -30,6 +30,7 @@ require_once 'SRC/controllers/NotePersonnelController.php';
 
 
 require_once 'SRC/models/UserModel.php';
+require_once 'SRC/models/MiseEnAvantModel.php';
 
 // Initialiser les modèles
 $userModel = new UserModel();
@@ -142,11 +143,21 @@ if (isset($_GET['route'])) {
         }
     break;
 
+
+
     case 'mise_en_avant':
         $controller = new MiseEnAvantController();
-        $controller->index();
-    break;
-    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $api_id = $_POST['manga_id'] ?? null;
+            if ($api_id !== null) {
+                $controller->setMiseEnAvant($api_id);
+                exit();
+            }
+        } else {
+            $controller->index();
+        }
+        break;
+
     case 'admin_mise_en_avant':
         if (isset($_SESSION['username'])) {
             $isAdmin = $userModel->checkIfUserIsAdmin($_SESSION['username']);
@@ -160,6 +171,23 @@ if (isset($_GET['route'])) {
             echo "Veuillez vous connecter pour accéder à cette page.";
         }
     break;
+
+    case 'set_mise_en_avant':
+        $controller = new MiseEnAvantController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $api_id = $_POST['manga_id'] ?? null;
+            if ($api_id !== null) {
+                $controller->setMiseEnAvant($api_id);
+                exit();
+            }
+        }
+    break;
+
+    case 'unset_mise_en_avant':
+        $controller = new MiseEnAvantController();
+        $controller->unsetMiseEnAvant();
+    break;
+
 
     case 'contact':
         $contactController->index();

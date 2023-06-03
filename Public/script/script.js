@@ -58,10 +58,3 @@ function goBack() {
 
 
 
-
-
-// GESTION MISE EN AVANT ADMINISTRATEUR 
-
-
-
-// -----------------------------------------------------------------------------

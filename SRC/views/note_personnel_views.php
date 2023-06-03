@@ -3,7 +3,7 @@
         <!-- Bloc pour créer une note -->
         <div class="note-section note-create" id="create-note-block">
             <h2 class="note-header">Créer une note</h2>
-            <textarea class="note-input" id="new-note" placeholder="Tapez votre note ici..."></textarea>
+            <textarea class="note-input" id="new-note" placeholder="Tapez votre note ici... 255 caractères maximun"></textarea>
             <button class="note-button" id="submit-note">Ajouter la note</button>
         </div>
 
@@ -33,3 +33,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="Public/script/notescript.js" defer ></script>
+
+
+   

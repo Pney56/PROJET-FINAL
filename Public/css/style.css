@@ -899,15 +899,25 @@ button[disabled] {
 
 /* ****************************************** SECTION NOTE PERSONNEL **********************/
 
+.container-note {
+  border: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  overflow: auto;
+  max-width: 400px;
+  max-height: 400px;
+
+}
+
 .note-section {
   flex-direction: column;
   justify-content: start;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .note-section.active {
-  display: flex; /* Les sections actives sont affichées */
+  display: flex;
 }
 
 .note-header {
@@ -919,13 +929,14 @@ button[disabled] {
   margin-bottom: 20px;
   padding: 10px;
   box-sizing: border-box;
-  border: 1px solid #ddd;
+  border: 2px solid #E74C3C;
   border-radius: 5px;
   resize: none;
+  height: 200px; 
 }
 
 .note-button {
-  background-color: #ff5454;
+  background-color: #E74C3C;
   color: rgb(255, 255, 255);
   border: none;
   padding: 10px 20px;
@@ -936,9 +947,17 @@ button[disabled] {
 
 .note-button:hover {
   background-color: #ffffff;
-  color: #ff5454;
+  color: #E74C3C;
   border: 2px solid;
   border-color: #E74C3C;
+}
+
+#note-text {
+  border: 2px solid #E74C3C;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
 }
 
 #display-note-block:not(.active),
@@ -948,5 +967,90 @@ button[disabled] {
 
 .note-section:not(.active) {
   display: none;
+}
+
+/* ******************************************FIN SECTION NOTE PERSONNEL **********************/
+
+/* ****************************************** MISE EN AVANT  **********************/
+
+.container-mise-en-avant {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Nouveaux styles pour les boutons */
+.button {
+  background-color: red;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Styles spécifiques pour la vue admin_mise_en_avant_views.php */
+.container-mise-en-avant form {
+  margin-bottom: 20px;
+}
+
+.manga {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.manga h3 {
+  margin-bottom: 10px;
+}
+
+.manga p {
+  margin-bottom: 15px;
+}
+
+/* Styles spécifiques pour les boutons dans la vue admin_mise_en_avant_views.php */
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-container .button {
+  margin-left: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 20% auto;
+  padding: 20px;
+  width: 300px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
 }
 
