@@ -53,7 +53,7 @@ class UserController {
             $_SESSION['error_message'] = $errorMessage;
     
             // Rediriger l'utilisateur vers la page de connexion
-            header('Location: /PROJET-FINAL/login');
+            header('Location: ?route=login');
             exit();
         } else {
             // Afficher la page de connexion normalement

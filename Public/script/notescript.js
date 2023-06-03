@@ -11,24 +11,38 @@ function getUrlParameter(name) {
 
 $(document).ready(function() {
     let api_id = getUrlParameter('id');
+    console.log(api_id);
 
     // Récupérer les notes existantes
     $.ajax({
         type: "GET",
         url: baseUrl + "getNote&id=" + api_id,
         success: function(data) {
+            data = JSON.parse(data);
             console.log(data);
+            console.log(Array.isArray(data));
             if (data.length > 0) {
                 note_id = data[0].id_note;
+                // Montrer la note si elle existe
                 showDisplayNoteBlock(data[0].note);
             } else {
+                // Montrer le bloc de création de note s'il n'y a pas de note existante
                 showCreateNoteBlock();
             }
         },
         error: function(data) {
             console.error("Erreur lors de la récupération des notes.");
         }
+    }).done(function() {
+        // Une fois que nous avons la réponse du serveur, nous montrons ou cachons le bloc de création de note.
+        if (note_id) {
+            showDisplayNoteBlock();
+        } else {
+            showCreateNoteBlock();
+        }
     });
+
+
 
     // Bouton d'ajout de note
     $("#submit-note").click(function() {
@@ -101,24 +115,31 @@ $(document).ready(function() {
             });
         }
     });
+
 });
 
 function showCreateNoteBlock() {
-    $("#create-note-block").show();
-    $("#display-note-block").hide();
-    $("#edit-note-block").hide();
+    console.log("showCreateNoteBlock is called");
+    $("#create-note-block").addClass('active');
+    $("#display-note-block").removeClass('active');
+    $("#edit-note-block").removeClass('active');
 }
+
 
 function showDisplayNoteBlock(note) {
+    console.log("showDisplayNoteBlock is called with note: " + note);  // Ajouté
     $("#note-text").text(note);
-    $("#note-view").text(note);
-    $("#create-note-block").hide();
-    $("#display-note-block").show();
-    $("#edit-note-block").hide();
+    console.log($("#create-note-block"));  // Ajouté
+    $("#create-note-block").removeClass('active');  // Ajouté
+    $("#display-note-block").addClass('active');
+    $("#edit-note-block").removeClass('active');
 }
 
+
+
+
 function showEditNoteBlock() {
-    $("#create-note-block").hide();
-    $("#display-note-block").hide();
-    $("#edit-note-block").show();
+    $("#create-note-block").removeClass('active');
+    $("#display-note-block").removeClass('active');
+    $("#edit-note-block").addClass('active');
 }

@@ -22,9 +22,9 @@ class NoteModel {
         return $query->rowCount();
     }
 
-    public function updateNote($username, $noteId, $updatedNote) {
-        $query = $this->db->prepare("UPDATE note_personnel SET note = :updated_note WHERE id_note = :note_id AND username = :username");
-        $query->execute(['updated_note' => $updatedNote, 'note_id' => $noteId, 'username' => $username]);
+    public function updateNote($username, $noteId, $note) { // Modification ici
+        $query = $this->db->prepare("UPDATE note_personnel SET note = :note WHERE id_note = :note_id AND username = :username");
+        $query->execute(['note' => $note, 'note_id' => $noteId, 'username' => $username]); // Modification ici
         return $query->rowCount();
     }
 

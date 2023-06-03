@@ -1,4 +1,4 @@
-   <div class="container">
+   <div class="container-note">
 
         <!-- Bloc pour créer une note -->
         <div class="note-section note-create" id="create-note-block">
@@ -29,6 +29,7 @@
     <script>
         var apiId = <?php echo $mangaId; ?>; 
     </script>
-    <script src="Public/script/notescript.js" defer></script>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="Public/script/notescript.js" defer ></script>

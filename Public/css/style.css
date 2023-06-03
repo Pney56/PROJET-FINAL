@@ -925,8 +925,8 @@ button[disabled] {
 }
 
 .note-button {
-  background-color: #009578;
-  color: white;
+  background-color: #ff5454;
+  color: rgb(255, 255, 255);
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -935,5 +935,18 @@ button[disabled] {
 }
 
 .note-button:hover {
-  background-color: #007362;
+  background-color: #ffffff;
+  color: #ff5454;
+  border: 2px solid;
+  border-color: #E74C3C;
 }
+
+#display-note-block:not(.active),
+#edit-note-block:not(.active) {
+  display: none;
+}
+
+.note-section:not(.active) {
+  display: none;
+}
+

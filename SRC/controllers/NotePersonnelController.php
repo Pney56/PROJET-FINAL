@@ -39,8 +39,8 @@ class NoteController {
         if(isset($_SESSION['username'])) {
             $username = $_SESSION['username'];
             $noteId = $_POST['note_id'];
-            $updatedNote = $_POST['updated_note'];
-            $result = $this->noteModel->updateNote($username, $noteId, $updatedNote);
+            $note = $_POST['note']; // Modification ici
+            $result = $this->noteModel->updateNote($username, $noteId, $note); // Modification ici
             echo json_encode(["success" => $result]);
         }
         else {
