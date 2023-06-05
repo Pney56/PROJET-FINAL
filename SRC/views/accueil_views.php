@@ -14,7 +14,7 @@
 
     <?php require_once __dir__ . '/header.php'; ?>
 
-    <main class="container bg-image">
+    <main class=" bg-image">
         <section id="highlighted-manga">
             <h2>MANGA</h2>
             <div>

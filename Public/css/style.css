@@ -230,6 +230,16 @@ header {
   margin-left: 10px;
 }
 
+#login-btn {
+  background-color: #fff;
+  color: #ff5555; /* Couleur du texte rouge, ajustez la couleur selon vos préférences */
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
 /* ----------------------------------------------------- FIN HEADER ------------------------------------------ */
 /* ------------------------------------------------- HEADER Media Queries ------------------------------------ */
 @media screen and (max-width: 1200px) {
@@ -262,7 +272,8 @@ header {
   }
 
   .search-container input[type="text"] {
-    width: 70%;
+    width: 40%;
+    margin-left: 30%;
   }
 
   /* Style du profil */
@@ -467,7 +478,7 @@ footer {
 .manga-card-alt {
   position: relative;
   display: inline-block;
-  width: 20%;
+  width: 25%;
   margin: 20px;
   background-color: #f8f8f8;
   border: 1px solid #ccc;

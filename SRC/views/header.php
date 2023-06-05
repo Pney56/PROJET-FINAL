@@ -42,7 +42,7 @@
     }
     ?>
 
-    <main class="formulaire">
+    <div class="formulaire">
         <h1 class="titre-form">RABURARI</h1>
         <form class="sign-in" action="index.php?route=login" method="post">
             <label for="email">Adresse email:</label>
@@ -55,17 +55,17 @@
         <form class="sign-up" id="signup-form" action="index.php?route=register" method="post">
             <a href="#" id="back-to-login-link">Retour à la connexion</a>
             <h2>Inscription</h2>
-            <label for="sign-up-username">Nom d'utilisateur:</label>
-            <input type="text" id="signup-username" name="signup-username" required>
-            <label for="sign-up-password">Mot de passe:</label>
-            <input type="password" id="signup-password" name="signup-password" required>
-            <label for="sign-up-email">Adresse email:</label>
-            <input type="email" id="signup-email" name="signup-email" required>
+            <label for="sign-up-username"> Nom d'utilisateur:</label>
+            <input type="text" id="sign-up-username" name="sign-up-username" required>
+            <label for="sign-up-password"> Mot de passe:</label>
+            <input type="password" id="sign-up-password" name="sign-up-password" required>
+            <label for="sign-up-email"> Adresse email:</label>
+            <input type="email" id="sign-up-email" name="sign-up-email" required>
             <input type="checkbox" id="accept-terms" name="accept-terms" required>
             <label for="accept-terms">J'accepte les conditions d'utilisation</label>
             <button type="submit">Inscription</button>
         </form>
 
         <a href="#" id="signup-btn">Pas de compte ? Inscris-toi !</a>
-    </main>
+</div>
 </div>

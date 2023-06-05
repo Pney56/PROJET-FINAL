@@ -51,7 +51,7 @@ class MangaController {
             $results = array_merge($results, ($additionalResults ?? [])['data'] ?? []);
         }
     
-        include __DIR__ . '/../Views/manga_views.php';  // Inclut le fichier de vue contenant le code HTML
+        require_once __DIR__ . '/../views/manga_views.php';  // Inclut le fichier de vue contenant le code HTML
     
         $html = ob_get_clean(); // Récupère le contenu de la mise en tampon de sortie et nettoie la mise en tampon
     
@@ -69,7 +69,7 @@ class MangaController {
         $results = array_merge($results, ($additionalResults ?? [])['data'] ?? []);
     }
 
-    include __DIR__ . '/../Views/manga_views_alt.php';  // Inclut le fichier de vue alternative contenant le code HTML
+    require_once __DIR__ . '/../views/manga_views_alt.php';  // Inclut le fichier de vue alternative contenant le code HTML
 
     $htmlprofil = ob_get_clean(); // Récupère le contenu de la mise en tampon de sortie et nettoie la mise en tampon
 

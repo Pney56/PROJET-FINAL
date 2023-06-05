@@ -28,7 +28,7 @@ class MangaModel {
     
 
     public function getFavoriByUser($username) {
-        $stmt = $this->db->prepare("SELECT Manga.api_id FROM Manga JOIN Favori ON Manga.api_id = Favori.api_id WHERE Favori.username = ?");
+        $stmt = $this->db->prepare("SELECT manga.api_id FROM manga JOIN favori ON manga.api_id = favori.api_id WHERE favori.username = ?");
         $stmt->execute([$username]);
         return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
     }
