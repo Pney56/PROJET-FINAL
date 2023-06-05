@@ -11,16 +11,12 @@ function getUrlParameter(name) {
 
 $(document).ready(function() {
     let api_id = getUrlParameter('id');
-    console.log(api_id);
-
     // Récupérer les notes existantes
     $.ajax({
         type: "GET",
         url: baseUrl + "getNote&id=" + api_id,
         success: function(data) {
             data = JSON.parse(data);
-            console.log(data);
-            console.log(Array.isArray(data));
             if (data.length > 0) {
                 note_id = data[0].id_note;
                 // Montrer la note si elle existe
@@ -119,7 +115,6 @@ $(document).ready(function() {
 });
 
 function showCreateNoteBlock() {
-    console.log("showCreateNoteBlock is called");
     $("#create-note-block").addClass('active');
     $("#display-note-block").removeClass('active');
     $("#edit-note-block").removeClass('active');
@@ -127,9 +122,7 @@ function showCreateNoteBlock() {
 
 
 function showDisplayNoteBlock(note) {
-    console.log("showDisplayNoteBlock is called with note: " + note);  // Ajouté
     $("#note-text").text(note);
-    console.log($("#create-note-block"));  // Ajouté
     $("#create-note-block").removeClass('active');  // Ajouté
     $("#display-note-block").addClass('active');
     $("#edit-note-block").removeClass('active');

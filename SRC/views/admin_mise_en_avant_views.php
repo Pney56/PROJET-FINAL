@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Public/css/style.css">
     <script src="Public/script/script.js" defer></script>
-    <script src="Public/script/message.php" defer></script>
-
     <title>RAIBURARI - Admin Mise en avant</title>
 </head>
 

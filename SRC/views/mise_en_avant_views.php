@@ -13,13 +13,9 @@
     <?php include 'header.php'; ?>
     <main>
         <h1 class="text-center">Mise en avant des mangas</h1>
-        <?php if (!empty($mangaMisEnAvant)) : ?>
+        <?php if (!empty($results)) : ?>
             <p class="text-center">Manga mis en avant :</p>
-            <ul class="mise-en-avant-list">
-                <li>
-                    <h2><?php echo $mangaMisEnAvant['Titre']; ?></h2>
-                </li>
-            </ul>
+            <?php include 'manga_views.php'; ?>
         <?php else : ?>
             <p class="text-center">Aucun manga mis en avant pour le moment.</p>
         <?php endif; ?>

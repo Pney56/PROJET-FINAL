@@ -13,7 +13,7 @@ class ApiController {
     }
     
     public function redirectToApi() {
-        session_start();
+        
         // Génération du code_verifier et du code_challenge
         $code_verifier = $this->generateRandomString();
         $code_challenge = $code_verifier;       
@@ -35,7 +35,7 @@ class ApiController {
     public function handleApiCallback() {
         require_once 'config.php';
         // Initialisation de la session
-        session_start();
+        
         // Récupération du code d'autorisation OAuth2
         $code = $_GET['code'];
         // Récupération du code_verifier à partir de la session

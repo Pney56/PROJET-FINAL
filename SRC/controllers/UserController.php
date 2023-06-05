@@ -53,15 +53,13 @@ class UserController {
             $_SESSION['error_message'] = $errorMessage;
     
             // Rediriger l'utilisateur vers la page de connexion
-            header('Location: ?route=login');
+            header('Location: ?route=accueil');
             exit();
         } else {
             // Afficher la page de connexion normalement
             $this->showLoginForm();
         }
     }
-    
-    
     
     
     public function register() {

@@ -1,3 +1,17 @@
+<?php
+// Démarrez la session si elle n'est pas déjà démarrée
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Affiche le message d'erreur s'il existe dans la session
+if (isset($_SESSION['error_message'])) {
+    echo "<script>alert('{$_SESSION['error_message']}');</script>";
+    // Effacer le message d'erreur de la session après l'affichage
+    unset($_SESSION['error_message']);
+}
+?>
+
 <header>
     <div id="logo">
         <a href="accueil"><img src="Public/image/logo.png" alt="Logo"></a>
@@ -13,7 +27,7 @@
     </div>
 
     <div class="search-container">
-        <form action="?route=accueil" method="GET" id="search-form">
+        <form action="?route=<?php echo $_GET['route'] ?? 'accueil'; ?>" method="GET" id="search-form">
             <input type="text" name="query" id="search" placeholder="Entrez le nom d'un manga...">
             <button type="submit">Rechercher</button>
         </form>
