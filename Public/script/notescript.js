@@ -11,6 +11,7 @@ function getUrlParameter(name) {
 
 $(document).ready(function() {
     let api_id = getUrlParameter('id');
+    
     // Récupérer les notes existantes
     $.ajax({
         type: "GET",
@@ -21,6 +22,9 @@ $(document).ready(function() {
                 note_id = data[0].id_note;
                 // Montrer la note si elle existe
                 showDisplayNoteBlock(data[0].note);
+                
+                // Vérifier si l'utilisateur suit le manga
+                checkMangaFollowing(api_id);
             } else {
                 // Montrer le bloc de création de note s'il n'y a pas de note existante
                 showCreateNoteBlock();
@@ -29,17 +33,22 @@ $(document).ready(function() {
         error: function(data) {
             console.error("Erreur lors de la récupération des notes.");
         }
-    }).done(function() {
-        // Une fois que nous avons la réponse du serveur, nous montrons ou cachons le bloc de création de note.
-        if (note_id) {
-            showDisplayNoteBlock();
-        } else {
-            showCreateNoteBlock();
-        }
     });
-
-
-
+    
+    function checkMangaFollowing(apiId) {
+        $.ajax({
+            url: 'check_manga_following.php',
+            type: 'POST',
+            data: {api_id: apiId},
+            success: function(response) {
+                if (response === 'true') {
+                    // Afficher le bloc-note personnel
+                    $('#create-note-block').show();
+                }
+            }
+        });
+    }
+    
     // Bouton d'ajout de note
     $("#submit-note").click(function() {
         let note = $("#new-note").val();
@@ -120,16 +129,12 @@ function showCreateNoteBlock() {
     $("#edit-note-block").removeClass('active');
 }
 
-
 function showDisplayNoteBlock(note) {
     $("#note-text").text(note);
     $("#create-note-block").removeClass('active');  // Ajouté
     $("#display-note-block").addClass('active');
     $("#edit-note-block").removeClass('active');
 }
-
-
-
 
 function showEditNoteBlock() {
     $("#create-note-block").removeClass('active');

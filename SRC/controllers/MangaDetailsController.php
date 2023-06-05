@@ -1,23 +1,30 @@
 <?php
 
 require_once 'config.php';
+require_once 'SRC/models/MangaModel.php';
 
 class MangaDetailsController {
-
     public function index($id) {
-
         // Récupération des détails du manga
         if (isset($_SESSION['access_token'])) {
             $accessToken = $_SESSION['access_token'];
             $mangaId = intval($id);
             $mangaDetails = $this->getMangaDetails($mangaId, $accessToken);
             $data = $this->displayMangaDetails($mangaDetails); // Stocke les données dans une variable
+
+            $mangaModel = new MangaModel();
+            $isMangaMisEnAvant = $mangaModel->isMangaMisEnAvant();
+            
+            // Vérifier si l'utilisateur suit le manga
+            $username = $_SESSION['username'];
+            $isMangaFavori = $mangaModel->isMangaFavori($username, $mangaId);
+            
+            // Passer les données à la vue
             require_once __dir__ . '/../views/manga_details_views.php';
         } else {
             echo "Access token not found. Please complete the authorization process first.";
         }
     }
-
 
 
     private function getMangaDetails($id, $accessToken){

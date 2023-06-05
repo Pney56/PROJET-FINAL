@@ -46,7 +46,13 @@
                             <?php endforeach; ?>
                         </ul>
                     </div>
-                    <?php require_once __dir__ . '/note_personnel_views.php'; ?>
+
+                    <?php if ($isMangaMisEnAvant && $isMangaFavori) : ?>
+                        <div>
+                            <?php require_once __dir__ . '/note_personnel_views.php'; ?>
+                        </div>
+                    <?php endif; ?>
+
                 </div>
                 <div class="manga-synopsis-container">
                     <h2 class='manga-synopsis-title'>Synopsis</h2>

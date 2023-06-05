@@ -26,7 +26,12 @@ class MangaModel {
         return $stmt->execute([$username, $api_id]);
     }
     
-
+    public function isMangaFavori($username, $api_id) {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM Favori WHERE username = ? AND api_id = ?");
+        $stmt->execute([$username, $api_id]);
+        return $stmt->fetchColumn() > 0;
+    }
+    
     public function getFavoriByUser($username) {
         $stmt = $this->db->prepare("SELECT manga.api_id FROM manga JOIN favori ON manga.api_id = favori.api_id WHERE favori.username = ?");
         $stmt->execute([$username]);
