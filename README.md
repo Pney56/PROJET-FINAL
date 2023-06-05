@@ -54,17 +54,21 @@ composer require vlucas/phpdotenv
 7. Renommez le fichier `.env.example` à la racine du projet en `.env`.
 
 8. Ouvrez le fichier `.env` et modifiez les valeurs des variables d'environnement suivantes selon votre configuration :
+
+```
 DB_HOST=adresse_de_votre_serveur_mysql
 DB_NAME=nom_de_votre_base_de_donnees
 DB_USER=nom_utilisateur_de_votre_base_de_donnees
 DB_PASSWORD=mot_de_passe_de_votre_base_de_donnees
-
+```
 
 9. Ouvrez le fichier `config/config.php` et modifiez les informations de connexion à la base de données selon votre configuration :
 
+```
 define('CLIENT_ID', 'VOTRE CLEF API');
 define('CLIENT_SECRET', 'VOTRE CLIENT SECRET ');
 define('REDIRECT_URI', 'REDIRECT DU SITE');
+```
 
 10. Lancez votre serveur PHP et accédez au site à l'aide de l'URL appropriée (par exemple, http://localhost/raiburari).
 
