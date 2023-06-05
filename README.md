@@ -88,5 +88,5 @@ Assurez-vous d'avoir un serveur PHP, Composer et MySQL correctement configurés 
 2. Accédez au répertoire de votre projet où se trouve le fichier `composer.json`.
 3. Exécutez la commande suivante pour installer Dotenv :
 
-### Image du site page d'accueil
+# Image du site page d'accueil
 ![Capture d’écran 2023-06-05 194930](https://github.com/Pney56/PROJET-FINAL/assets/117365736/de933b8f-4e41-41ff-adde-6f91218b6edd)
