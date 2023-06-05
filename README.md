@@ -35,14 +35,41 @@ Pour utiliser l'API MyListAnime, vous devez d'abord créer un compte sur leur si
 
 ## Installation
 
-1. Clonez ce dépôt sur votre machine locale en utilisant la commande `git clone https://github.com/[votre-nom-utilisateur]/raiburari.git`
-2. Accédez au dossier du projet avec `cd raiburari`
-3. Installez les dépendances en exécutant `composer install`
-4. Installez les dépendances npm en exécutant `npm install`
-5. Créez un fichier .env à la racine du projet pour y stocker vos variables d'environnement (par exemple, l'URL de l'API MyListAnime et votre clé API)
-6. Lancez le serveur de développement avec `npm start`
-7. Le site devrait maintenant être accessible à l'adresse http://localhost:3000.
+Pour installer et configurer le projet Raiburari, veuillez suivre les étapes ci-dessous :
 
+1. Clonez ce dépôt sur votre machine locale en utilisant la commande suivante :
+git clone https://github.com/[votre-nom-utilisateur]/raiburari.git
+
+2. Installez Composer en suivant les instructions officielles disponibles sur la page [Composer - Getting Started](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos).
+
+3. Installez Dotenv en utilisant la commande suivante :
+composer require vlucas/phpdotenv
+
+4. Installez le projet sur un serveur PHP configuré (tel que Apache ou Nginx) avec prise en charge de la base de données MySQL.
+
+5. Créez une nouvelle base de données avec le nom de votre choix sur votre serveur MySQL.
+
+6. Importez le dossier SQL fourni (dans un dossier nommé "sql") dans la base de données que vous avez créée.
+
+7. Renommez le fichier `.env.example` à la racine du projet en `.env`.
+
+8. Ouvrez le fichier `.env` et modifiez les valeurs des variables d'environnement suivantes selon votre configuration :
+DB_HOST=adresse_de_votre_serveur_mysql
+DB_NAME=nom_de_votre_base_de_donnees
+DB_USER=nom_utilisateur_de_votre_base_de_donnees
+DB_PASSWORD=mot_de_passe_de_votre_base_de_donnees
+
+
+9. Ouvrez le fichier `config/config.php` et modifiez les informations de connexion à la base de données selon votre configuration :
+
+define('CLIENT_ID', 'VOTRE CLEF API');
+define('CLIENT_SECRET', 'VOTRE CLIENT SECRET ');
+define('REDIRECT_URI', 'REDIRECT DU SITE');
+
+10. Lancez votre serveur PHP et accédez au site à l'aide de l'URL appropriée (par exemple, http://localhost/raiburari).
+
+
+Assurez-vous d'avoir un serveur PHP, Composer et MySQL correctement configurés avant de commencer l'installation.
 ## Utilisation de Composer et Dotenv
 
 ### Installation de Composer
