@@ -32,7 +32,7 @@ Pour utiliser l'API MyListAnime, vous devez d'abord créer un compte sur leur si
 
 1. Allez sur MyListAnime et créez un compte
 2. Connectez-vous à votre compte
-3. Accédez à la section "API" ou "Développeurs" pour générer une clé API
+3. Accédez à la section "API" (``` https://myanimelist.net/apiconfig ```) pour générer une clé API
 4. Copiez la clé API pour l'utiliser dans votre projet Raiburari
 
 ## Installation
