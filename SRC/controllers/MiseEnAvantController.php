@@ -4,7 +4,7 @@
 class MiseEnAvantController {
 
     public function index() {
-        $mangaModel = new MiseEnAvantModel();
+        $mangaModel = new MangaModel();
         $mangaMisEnAvant = $mangaModel->getMangaMisEnAvantEnCours();
 
         include 'SRC/views/mise_en_avant_views.php';
@@ -16,7 +16,7 @@ class MiseEnAvantController {
         }
 
         if (isset($_SESSION['username'])) {
-            $mangaModel = new MiseEnAvantModel();
+            $mangaModel = new MangaModel();
             $mangas = $mangaModel->getMangasMisEnAvant();
             $mangaMisEnAvant = $mangaModel->getMangaMisEnAvantEnCours();
 
@@ -33,7 +33,7 @@ class MiseEnAvantController {
         }
 
         if (isset($_SESSION['username']) && $_SESSION['isAdmin']) {
-            $mangaModel = new MiseEnAvantModel();
+            $mangaModel = new MangaModel();
             
             if ($mangaModel->isMangaMisEnAvant()) {
                 // Afficher une alerte
@@ -61,7 +61,7 @@ class MiseEnAvantController {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $api_id = $_POST['manga_id'] ?? null;
                 if ($api_id !== null) {
-                    $mangaModel = new MiseEnAvantModel();
+                    $mangaModel = new MangaModel();
                     $mangaModel->setMangaMisEnAvant($api_id, false);
 
                     // Rediriger vers la page d'administration des mises en avant

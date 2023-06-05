@@ -30,7 +30,6 @@ require_once 'SRC/controllers/NotePersonnelController.php';
 
 
 require_once 'SRC/models/UserModel.php';
-require_once 'SRC/models/MiseEnAvantModel.php';
 
 // Initialiser les modèles
 $userModel = new UserModel();
