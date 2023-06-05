@@ -7,6 +7,8 @@ Projet final Kercode - Raiburari est un projet de site web qui facilite la reche
 - Recherche de manga via l'API MyListAnime
 - Affichage des détails du manga (titre, auteur, synopsis, etc.)
 - Ajout de mangas aux favoris pour un accès rapide et simple
+- Ajout de note pour des manga en favori
+- Mise en avant de manga par un administrateur
 - Architecture MVC (Modèle-Vue-Contrôleur) pour une organisation claire du code
 - Utilisation de dotenv pour la gestion des variables d'environnement
 
@@ -87,10 +89,3 @@ Assurez-vous d'avoir un serveur PHP, Composer et MySQL correctement configurés 
 3. Exécutez la commande suivante pour installer Dotenv :
 
 
-4. Après l'installation, vous pouvez utiliser Dotenv en l'incluant dans vos fichiers PHP :
-
-```php
-require_once __DIR__ . '/vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
