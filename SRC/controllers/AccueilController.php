@@ -17,7 +17,8 @@ class AccueilController {
 
             $searchHtml = MangaController::displaySearchResults($searchResults);
         } else {
-            $searchHtml = "Le token n'a pas été trouvé, merci de vous identifier";
+            $searchHtml = '<img src="Public/image/raiburari-attente.png" alt="Image attente" class="image-attente">';
+
         }
 
         require_once __DIR__ . '/../views/accueil_views.php';

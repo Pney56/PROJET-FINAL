@@ -13,7 +13,7 @@
     </div>
 
     <div class="search-container">
-        <form action="?route=accueil" method="GET" id="search">
+        <form action="?route=accueil" method="GET" id="search-form">
             <input type="text" name="query" id="search" placeholder="Entrez le nom d'un manga...">
             <button type="submit">Rechercher</button>
         </form>

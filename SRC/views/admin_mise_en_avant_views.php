@@ -39,8 +39,8 @@
             <h2 class="text-center">Manga mis en avant :</h2>
             <div class="manga">
                 <h3><?php echo $mangaMisEnAvant['Titre']; ?></h3>
-                <?php if (isset($mangaMisEnAvant['Description'])) : ?>
-                    <p><?php echo $mangaMisEnAvant['Description']; ?></p>
+                <?php if (isset($mangaMisEnAvant['api_id'])) : ?>
+                    <p><?php echo $mangaMisEnAvant['api_id']; ?></p>
                 <?php endif; ?>
                 <div class="button-container">
                     <form action="?route=unset_mise_en_avant" method="post">

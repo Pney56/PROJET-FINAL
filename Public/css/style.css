@@ -109,7 +109,7 @@ body {
 /* -------------------------------------------- Page Connexion Media Queries ------------------------------------ */
 
 /* Media queries */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1200px) {
   .titre-form {
     font-size: 30px;
     margin: 10px;
@@ -189,7 +189,7 @@ header {
 }
 
 .search-container input[type="text"] {
-  width: 30%;
+  width: 50%;
   padding: 5px;
   border-radius: 5px;
   border: none;
@@ -230,9 +230,55 @@ header {
   margin-left: 10px;
 }
 
-/* ----------------------------------------------------- FIN HEADER ------------------------------------------------- */
+/* ----------------------------------------------------- FIN HEADER ------------------------------------------ */
+/* ------------------------------------------------- HEADER Media Queries ------------------------------------ */
+@media screen and (max-width: 1200px) {
+  /* Styles pour le conteneur principal */
+  header {
+    flex-direction: column;
+  }
 
+  /* Style du logo */
+  #logo img {
+    width: 80%; /* Ajustez la taille selon vos préférences */
+    margin-bottom: 20px;
+  }
 
+  /* Style de la navigation principale */
+  .main-nav ul {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .main-nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  /* Style de la barre de recherche */
+  .search-container {
+    width: 100%;
+    margin: 20px 0; /* Ajustez la marge selon vos préférences */
+  }
+
+  .search-container input[type="text"] {
+    width: 70%;
+  }
+
+  /* Style du profil */
+  #profile {
+    flex-direction: column;
+    align-items: start;
+    margin-top: 20px;
+  }
+
+  #profile a,
+  .logout-button {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+/* ------------------------------------------------- FIN HEADER Media Queries ------------------------------------ */
 /* -------------------------------------------------- FOOTER --------------------------------------------------*/ 
 
 footer {
@@ -260,7 +306,7 @@ footer {
 
 /* ---------------------------------------------- FIN FOOTER --------------------------------------------------*/ 
 
-/* ---------------------------------------------- Section Manga --------------------------------------------------*/ 
+/* ---------------------------------------------- Section Manga -----------------------------------------------*/ 
 #highlighted-manga h2 {
   font-family: 'Roboto Slab', serif;
   font-size: 76px;
@@ -353,13 +399,56 @@ footer {
   justify-content: space-between;
 }
 
-/* ------------------------------------------------- POP-UP Section Manga  --------------------------------------------- */ 
-                                                            /*-*/
-/* ------------------------------------------------- POP-UP Section Manga  --------------------------------------------- */ 
-
 /* ------------------------------------------------- FIN Section Manga  --------------------------------------------- */ 
+/* ------------------------------------------------- Section Manga Media Queries ------------------------------------ */
+@media screen and (max-width: 1200px) {
+  #highlighted-manga h2 {
+    font-size: 48px; 
+    margin-top: 50px; 
+  }
 
-/* ------------------------------------------------- DÉBUT Section Manga PROFIL --------------------------------------------- */
+  .manga-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .manga-card {
+    width: 40%; 
+    margin: 20px auto; 
+  }
+
+  .manga-card img {
+    min-height: 30%; 
+    max-height: 30%; 
+  }
+
+  .manga-card h3 {
+    font-size: 20px; 
+  }
+
+  .manga-card p {
+    font-size: 14px; 
+  }
+
+  .manga-card a {
+    font-size: 16px; 
+    padding: 5px; 
+  }
+
+  .follow-button,
+  .details-button{
+    padding: 10px; 
+    width: 100%; 
+    margin-bottom: 10px; 
+  }
+
+  .manga-buttons {
+    flex-direction: column;
+  }
+}
+/* -------------------------------------------------FIN Section Manga Media Queries --------------------------------- */
+
+/* ------------------------------------------------- DÉBUT Section Manga PROFIL ------------------------------------- */
 #highlighted-manga h2 {
   font-family: 'Roboto Slab', serif;
   font-size: 76px;
@@ -456,15 +545,57 @@ footer {
   bottom: 0;
   margin-left: -10px;
 }
+/* ------------------------------------------------- FIN Section Manga PROFIL --------------------------------------- */
 
+/* --------------------------------------------------Section Manga PROFIL Media Queries ----------------------------- */
+@media screen and (max-width: 1200px) {
+  #highlighted-manga h2 {
+    font-size: 48px; 
+    margin-top: 50px; 
+  }
 
+  .manga-grid-alt {
+    flex-wrap: wrap;
+  }
 
+  .manga-card-alt {
+    width: 45%; 
+    margin: 2.5%; 
+  }
 
-/* ------------------------------------------------- FIN Section Manga PROFIL --------------------------------------------- */
+  .manga-card-alt img {
+    min-height: 30%; 
+    max-height: 30%; 
+  }
 
+  .manga-card-alt h3 {
+    font-size: 20px; 
+  }
 
+  .manga-card-alt p {
+    font-size: 14px; 
+  }
 
-/* ------------------------------------------ DEBUT page profil Utilisateur --------------------------------------- */
+  .manga-card-alt a {
+    font-size: 16px; 
+    padding: 5px; 
+  }
+
+  .unfollow-button-alt,
+  .details-button-alt {
+    font-size: 16px; 
+    padding: 10px; 
+  }
+
+  .manga-buttons-alt {
+    position: static;
+    padding-bottom: 10px;
+  }
+}
+
+/* ----------------------------------------------FIN Section Manga PROFIL Media Queries ----------------------------- */
+
+/* ------------------------------------------ DEBUT page profil Utilisateur ----------------------------------------- */
 
 .profil-container {
   display: flex;
@@ -533,11 +664,47 @@ footer {
   color: #E74C3C;
   border: 2px solid #E74C3C;
 }
+/* ------------------------------------------- FIN page profil Utilisateur ------------------------------------------ */
 
-/* ------------------------------------------ FIN page profil Utilisateur --------------------------------------- */
+/* --------------------------------------------------- page PROFIL Media Queries ------------------------------------ */
+@media screen and (max-width: 1200px) {
+  .profil-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profil-section {
+    padding: 20px 0; 
+  }
+
+  .profil-section > * {
+    padding: 20px; 
+    margin: 10px; 
+  }
+
+  .profil-image {
+    width: 200px; 
+    height: 200px; 
+  }
+
+  .profil-info h1 {
+    font-size: 24px; 
+  }
+
+  .profil-info p {
+    font-size: 16px; 
+  }
+
+  .profil-modifier {
+    font-size: 16px; 
+    padding: 5px 10px; 
+  }
+}
+
+/* ---------------------------------------------- FIN page PROFIL Media Queries ------------------------------------- */
 
 
-/* --------------------------------------- DEBUT page modifier profil Utilisateur ------------------------------ */
+/* -------------------------------------------- DEBUT page modifier profil Utilisateur ------------------------------ */
 
 .manga-theme .formulaire-modifier {
   background-color: #2C3E50;
@@ -621,10 +788,9 @@ footer {
 }
 
 
-/* --------------------------------------- FIN page modifier profil Utilisateur ------------------------------ */
+/* --------------------------------------- FIN page modifier profil Utilisateur ------------------------------------- */
 
-
-/* --------------------------------------------- DEBUT page Detail Manga ------------------------------------- */
+/* --------------------------------------------- DEBUT page Detail Manga -------------------------------------------- */
 
 .manga-details-container {
   background-color: #ffffff;
@@ -753,21 +919,44 @@ button[disabled] {
 }
 
 /* --------------------------------------------- FIN page Detail Manga ------------------------------------- */
-/* --------------------------------------------- page Detail Manga responsive------------------------------------- */
-/* Responsive pour une largeur maximale de 767px */
-@media screen and (max-width: 767px) {
+
+/* -------------------------------------------------- page manga details Media Queries ----------------------------- */
+@media screen and (max-width: 1200px) {
+  .manga-details-container {
+    padding: 10px; 
+  }
+
   .manga-details-container .manga-title {
-    font-size: 3em;
+    font-size: 3em; 
   }
 
-  .slider-item {
-    width: calc(100% / 2);
+  .manga-details-container .manga-info-container .manga-details {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .additional-images-container {
-    display: none;
+  .manga-details-container .manga-info-container .manga-details .manga-image {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .manga-details-container .manga-info .manga-date-title,
+  .manga-details-container .manga-info .manga-genres-title,
+  .manga-details-container .manga-info .manga-authors-title {
+    margin: 10px 0; 
+  }
+
+  .manga-details-container .manga-info .manga-genres-list li,
+  .manga-details-container .manga-info .manga-authors-list li {
+    margin-bottom: 5px; 
+  }
+
+  .manga-details-container .manga-info {
+    padding: 10px; 
   }
 }
+
+/* ------------------------------------- FIN manga details Media Queries -------------------------------------------- */
 
 
 
@@ -1054,3 +1243,13 @@ button[disabled] {
   color: #000;
 }
 
+
+
+
+/***************************************************Image d'accueil ***********************************************/
+
+.image-attente {
+margin-left: 35%;
+  max-width: 30%;
+
+}

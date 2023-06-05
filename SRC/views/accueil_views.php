@@ -17,10 +17,12 @@
     <main class="container bg-image">
         <section id="highlighted-manga">
             <h2>MANGA</h2>
-            <?php
-            // Afficher le contenu de $searchHtml contenant les résultats de recherche de mangas
-            echo $searchHtml; 
-            ?>
+            <div>
+                <?php
+                // Afficher le contenu de $searchHtml contenant les résultats de recherche de mangas
+                echo $searchHtml; 
+                ?>
+            </div>
         </section>
     </main>
 
