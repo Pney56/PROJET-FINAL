@@ -2,6 +2,12 @@
 
 Projet final Kercode - Raiburari est un projet de site web qui facilite la recherche et la gestion des favoris pour les fans de manga. Il utilise l'API MyListAnime pour accéder à des informations détaillées sur les mangas et permet aux utilisateurs de les ajouter à leur liste de favoris pour les retrouver facilement.
 
+
+Lien pour tester le site : 
+
+http://greta-bretagne-sud.fr/stagiaires-kercode/nicolas-dupont-huin/PROJET-FINAL/accueil
+
+
 ## Fonctionnalités
 
 - Recherche de manga via l'API MyListAnime
